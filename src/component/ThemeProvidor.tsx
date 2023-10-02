@@ -72,16 +72,15 @@ const ThemeProvidor: React.FC<ContainerProps> = ({ children }) => {
       MuiButton: {
         styleOverrides: {
           root: {
-            fontSize: "11px",
             textTransform: "none",
             "@media (min-width:600px)": {
-              fontSize: "12px", // Adjust font size for screens with a minimum width of 600px (sm)
+              fontSize: "10px", // Adjust font size for screens with a minimum width of 600px (sm)
             },
             "@media (min-width:960px)": {
-              fontSize: "15px", // Adjust font size for screens with a minimum width of 960px (md)
+              fontSize: "13px", // Adjust font size for screens with a minimum width of 960px (md)
             },
             "@media (min-width:1280px)": {
-              fontSize: "18px", // Adjust font size for screens with a minimum width of 1280px (lg)
+              fontSize: "14px", // Adjust font size for screens with a minimum width of 1280px (lg)
             },
           },
         },
