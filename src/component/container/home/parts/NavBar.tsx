@@ -9,7 +9,6 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 
 import IconButton from "@mui/material/IconButton";
 import ListIcon from "@mui/icons-material/List";
-import { Typography } from "@material-ui/core";
 
 const NavBar = () => {
   return (

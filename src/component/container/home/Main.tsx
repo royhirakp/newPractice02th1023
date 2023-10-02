@@ -37,15 +37,17 @@ const Main = () => {
                 top: "0",
               }}
             >
-              <Box
-                color="primary.main"
-                bgcolor="primary.light"
-                sx={{ padding: "15px 0 0 0" }}
-              >
-                <Header />
-                <Divider />
-                <NavBar />
-              </Box>
+              <Paper elevation={0}>
+                <Box
+                  color="primary.main"
+                  bgcolor="primary.light"
+                  sx={{ padding: "15px 0 0 0" }}
+                >
+                  <Header />
+                  <Divider />
+                  <NavBar />
+                </Box>
+              </Paper>
             </header>
 
             <main>
