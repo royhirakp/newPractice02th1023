@@ -65,13 +65,13 @@ export default Hero;
 const TEXTDataCard = () => {
   return (
     <>
-      <Box pr={5} pl={2} justifyContent="center" alignItems="center">
+      <Box justifyContent="center" alignItems="center">
         <Typography
           variant="h2"
           component="h1"
           sx={{
             maxWidth: {
-              xs: "150px",
+              xs: "145px",
             },
             margin: {
               xs: "0 auto",
@@ -85,17 +85,17 @@ const TEXTDataCard = () => {
           variant="body2"
           sx={{
             maxWidth: {
-              xs: "250px",
+              xs: "220px",
               sm: "320px",
               md: "350px",
               lg: "400px",
             },
-            minWidth: {
-              xs: "225px",
-              sm: "225px",
-              md: "225px",
-              lg: "320px",
-            },
+            // minWidth: {
+            //   xs: "225px",
+            //   sm: "225px",
+            //   md: "225px",
+            //   lg: "320px",
+            // },
             margin: {
               xs: "20px auto",
               sm: "20px 0",
@@ -135,7 +135,19 @@ const TEXTDataCard = () => {
         <Button variant="contained">Search</Button>
       </Box>
 
-      <Stack direction="row" justifyContent="space-around" pt={4}>
+      <Stack
+        direction="row"
+        justifyContent="space-between"
+        pt={4}
+        sx={{
+          maxWidth: "400px",
+          minWidth: "250px",
+          margin: {
+            xs: "0 auto",
+            sm: "0",
+          },
+        }}
+      >
         {[
           { value: "9,000", Text: "primium Products" },
           { value: "2,000", Text: "Haapy Coustomers" },

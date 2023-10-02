@@ -65,7 +65,7 @@ const Main = () => {
             </main>
           </div>
           <Divider sx={{ margin: "20px 0" }} />
-          <div style={{ height: "2000px" }}></div>
+          <div style={{ height: "2000px" }}>//products list</div>
         </div>
       </div>
     </ThemeProvidor>
