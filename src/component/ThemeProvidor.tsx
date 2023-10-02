@@ -1,26 +1,18 @@
 import { Box, CssBaseline, Paper } from "@mui/material";
 import React, { ReactNode, useState } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useTheme } from "@material-ui/core/styles";
 import Switch from "@mui/material/Switch";
 interface ContainerProps {
   children: ReactNode;
 }
 
 const ThemeProvidor: React.FC<ContainerProps> = ({ children }) => {
-  //   const theme = useTheme();
-  //   console.log(theme);
   const [darkMode, setDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
-  const modeTheme = createTheme({
-    palette: {
-      mode: darkMode ? "dark" : "light",
-      // primary: darkMode ? orange : blue,
-    },
-  });
+
   const theme = createTheme({
     palette: {
       mode: darkMode ? "dark" : "light",
