@@ -1,5 +1,6 @@
 "use client";
 import ThemeProvidor from "@/component/ThemeProvidor/ThemeProvidor";
+import Footer from "@/component/root/parts/Footer";
 import Header from "@/component/root/parts/Header";
 import Hero from "@/component/root/parts/Hero";
 import NavBar from "@/component/root/parts/NavBar";
@@ -87,7 +88,7 @@ export default function DashboardLayout({
                 {children}
               </Box>
               <Box sx={{}}>
-                footer
+                <Footer />
                 {/* footer */}
               </Box>
             </div>

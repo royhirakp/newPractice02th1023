@@ -30,7 +30,7 @@ const CoreValueComponent = () => {
               display: "flex",
 
               justifyContent: { xs: "center", sm: "flex-start" },
-              alignItems: { xs: "center" },
+              alignItems: { xs: "center", sm: "end" },
             }}
           >
             <ImagePart />
@@ -77,17 +77,20 @@ const ImagePart = () => {
           md: "330px",
         },
         boxSizing: "border-box",
+        border: "8px solid #d7d7d7",
+        borderRadius: "7px",
       }}
     >
       <img
-        src="/hotelsphoto/Screenshot 2023-10-03 220328.png"
+        src="/hotelsphoto/Screenshot 2023-10-03 220127.png"
         alt=""
         style={{
           width: "100%",
           height: "100%",
-          borderTopLeftRadius: "50%",
-          borderTopRightRadius: "50%",
-          border: "8px solid",
+          // borderTopLeftRadius: "50%",
+          // borderTopRightRadius: "50%",
+          scale: "1.01",
+          borderRadius: "7px",
         }}
       />
     </Box>

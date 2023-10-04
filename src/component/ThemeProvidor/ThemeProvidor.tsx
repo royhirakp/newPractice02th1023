@@ -23,6 +23,7 @@ const ThemeProvidor: React.FC<ContainerProps> = ({ children }) => {
       secondary: {
         main: darkMode ? "#12435f" : "#93e994",
       },
+
       background: {
         default: darkMode ? "#0b293a" : "#b2d9ef",
       },
