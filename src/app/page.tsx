@@ -1,4 +1,4 @@
-import Main from "@/component/container/home/Main";
+import Main from "@/pages/Main/Main";
 export default function Home() {
   return (
     <>

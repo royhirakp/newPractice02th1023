@@ -6,3 +6,7 @@ body {
 }
 
 /*  */
+
+.swiper-horizontal {
+  overflow: visible;
+}
