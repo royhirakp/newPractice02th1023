@@ -12,13 +12,11 @@ const page = () => {
   return (
     <>
       {/* <Hero /> */}
-      <Divider sx={{ margin: "20px 0" }} />
       <CompanyList />
-      <Divider />
       <HotelsList />
       <Divider />
       <CoreValueComponent />
-      <Divider sx={{ margin: "10px 0 20px 0" }} />
+      <Divider />
       <ContactPage />
 
       <StartyourJourneycomponent />

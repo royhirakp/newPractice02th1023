@@ -19,13 +19,27 @@ const ThemeProvidor: React.FC<ContainerProps> = ({ children }) => {
       primary: {
         main: darkMode ? "#a8acd1" : "#2433bc",
         light: !darkMode ? "#5eabb2d1" : "#2b3c4f",
+        dark: "#ffff",
+        contrastText: "#ffff",
       },
       secondary: {
         main: darkMode ? "#12435f" : "#93e994",
+        light: darkMode ? "#676464" : "#dcd5d5",
+        dark: darkMode ? "#9b9c9d" : "#f0f8ff",
+        contrastText: "#ffff",
       },
-
+      text: {
+        primary: darkMode ? "#ffff" : "#424452",
+        secondary: !darkMode ? "#5eabb2d1" : "#2b3c4f",
+        disabled: "#ffff",
+      },
+      error: {
+        main: darkMode ? "#0b293a" : "#b2d9ef",
+        light: darkMode ? "#0b293a" : "#b2d9ef",
+      },
       background: {
         default: darkMode ? "#0b293a" : "#b2d9ef",
+        paper: darkMode ? "#2a2828" : "#d9d4d4 ",
       },
     },
     typography: {

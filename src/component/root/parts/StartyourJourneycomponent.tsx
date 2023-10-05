@@ -1,3 +1,4 @@
+"use client";
 import MainContainer from "@/component/container/MainContainer";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import React from "react";
@@ -8,7 +9,7 @@ const StartyourJourneycomponent = () => {
       <MainContainer style={{}}>
         <Stack
           sx={{
-            backgroundColor: "ActiveBorder",
+            backgroundColor: "#999696",
             borderRadius: "7px",
             marginTop: "30px",
 

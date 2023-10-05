@@ -1,9 +1,7 @@
+"use client";
 import React from "react";
 import { Box, Stack, Typography } from "@mui/material";
 import MainContainer from "@/component/container/MainContainer";
-import Image from "next/image";
-import Card from "@mui/material/Card";
-import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import RoomIcon from "@mui/icons-material/Room";
 

@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import MainContainer from "@/component/container/MainContainer";
 import { Button, CssBaseline, Stack, Box } from "@mui/material";

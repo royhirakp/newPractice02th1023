@@ -12,8 +12,8 @@ import {
 import "react-accessible-accordion/dist/fancy-example.css";
 const CoreValueComponent = () => {
   return (
-    <div>
-      <MainContainer style={{ marginTop: "30px" }}>
+    <Box sx={{ bgcolor: "secondary.dark", padding: "15px 0" }}>
+      <MainContainer style={{}}>
         <Stack
           sx={{
             flexDirection: {
@@ -57,7 +57,7 @@ const CoreValueComponent = () => {
           </Box>
         </Stack>
       </MainContainer>
-    </div>
+    </Box>
   );
 };
 

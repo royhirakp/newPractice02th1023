@@ -1,7 +1,12 @@
+"use client";
 import MainContainer from "@/component/container/MainContainer";
 import { Box, Button, Paper, Stack, Typography } from "@mui/material";
 import React from "react";
-
+import EmailIcon from "@mui/icons-material/Email";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import ChatIcon from "@mui/icons-material/Chat";
+import CallIcon from "@mui/icons-material/Call";
+// main component
 const ContactPage = () => {
   return (
     <div>
@@ -36,10 +41,7 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
-import EmailIcon from "@mui/icons-material/Email";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import ChatIcon from "@mui/icons-material/Chat";
-import CallIcon from "@mui/icons-material/Call";
+// component parts
 const LeftsideButtonContainer = () => {
   return (
     <>
@@ -58,7 +60,11 @@ const LeftsideButtonContainer = () => {
           </Typography>
         </Box>
         {/* contact cards */}
-        <Stack direction="column" justifyContent="space-between">
+        <Stack
+          direction="column"
+          justifyContent="space-between"
+          sx={{ mr: { xs: 0, sm: "5px", md: "0" } }}
+        >
           <ContacControlsCardList />
         </Stack>
       </Stack>
@@ -147,12 +153,14 @@ const ContacControlsCardList = () => {
                       flexDirection: "column",
                       justifyContent: "space-evenly",
                       // width: "16rem",
-                      maxWidth: "400px",
+                      maxWidth: {
+                        xs: "48%",
+                      },
                       padding: "1rem",
                       transition: "all 300ms ease-in",
                       margin: {
                         xs: "2px",
-                        sm: 1,
+                        // sm: 1,
                       },
                       "&:hover": {
                         scale: "1.02",
@@ -185,18 +193,29 @@ const ContactCardContains: React.FC<{
   return (
     <>
       <Stack direction="row" justifyContent="space-between">
-        <Box pr={3} flex={1} sx={{}}>
-          <div
-            style={{
-              display: "inline-block",
+        <Box flex={1} sx={{ paddingRight: { xs: "3%", md: 2 } }}>
+          <Box
+            sx={{
+              width: {
+                xs: "30px",
+                md: "40px",
+              },
+
+              height: {
+                xs: "30px",
+                md: "40px",
+              },
               borderRadius: "50%",
-              padding: "10px 5px 5px 5px",
+              padding: "5px",
               marginBottom: "9px",
               background: "#e2dfdf",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
             {icon}
-          </div>
+          </Box>
         </Box>
         <Box flex={2}>
           <Typography variant="subtitle2">{title}</Typography>
@@ -208,7 +227,8 @@ const ContactCardContains: React.FC<{
         <Button
           sx={{
             // color: "red",
-            margin: "0 3px",
+            margin: "9px 0px 0 0",
+
             transition: "all 300ms ease-in",
             "&:hover": {
               scale: "0.9",
