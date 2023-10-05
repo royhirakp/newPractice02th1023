@@ -26,7 +26,7 @@ export default function DashboardLayout({
           style={{
             position: "relative",
             overflowX: "clip",
-            // height: "1000px",
+            height: "100vh",
           }}
         >
           <div style={{ background: "var(--blue)", position: "relative" }}>
@@ -38,42 +38,15 @@ export default function DashboardLayout({
                 height: "auto",
                 display: "flex",
                 flexDirection: "column",
-                // minHeight: "100vh",
+                minHeight: "100vh",
                 justifyContent: "space-between",
               }}
             >
               {/* header */}
               <div style={{}}>
-                <header
-                  style={{
-                    position: "sticky",
-                    zIndex: "99",
-                    top: "0",
-                  }}
-                >
-                  <Paper elevation={0}>
-                    <Box
-                      color="primary.main"
-                      bgcolor="primary.light"
-                      sx={{ padding: "15px 0 0 0" }}
-                    >
-                      <Header />
-                      <Divider />
-                      <NavBar />
-                    </Box>
-                  </Paper>
-                </header>
-                <Box
-                  sx={{
-                    marginTop: {
-                      xs: "0",
-                      lg: "5px",
-                    },
-                  }}
-                >
-                  <Hero />
-                </Box>
+                <HeaderComponent />
               </div>
+
               {/* main part / medile part */}
               <Box
                 sx={{
@@ -87,9 +60,10 @@ export default function DashboardLayout({
               >
                 {children}
               </Box>
+
+              {/* foterrr container  */}
               <Box sx={{}}>
                 <Footer />
-                {/* footer */}
               </Box>
             </div>
           </div>
@@ -98,3 +72,39 @@ export default function DashboardLayout({
     </section>
   );
 }
+
+const HeaderComponent = () => {
+  return (
+    <>
+      <header
+        style={{
+          position: "sticky",
+          zIndex: "99",
+          top: "0",
+        }}
+      >
+        <Paper elevation={0}>
+          <Box
+            color="primary.main"
+            bgcolor="primary.light"
+            sx={{ padding: "15px 0 0 0" }}
+          >
+            <Header />
+            <Divider />
+            <NavBar />
+          </Box>
+        </Paper>
+      </header>
+      <Box
+        sx={{
+          marginTop: {
+            xs: "0",
+            lg: "5px",
+          },
+        }}
+      >
+        <Hero />
+      </Box>
+    </>
+  );
+};

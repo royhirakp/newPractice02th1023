@@ -46,10 +46,10 @@ export default ContactPage;
 const LeftsideButtonContainer = () => {
   return (
     <>
-      <Stack direction="column" sx={{ mt: 1 }}>
+      <Stack direction="column" sx={{ mt: { xs: 1, sm: 4 } }}>
         {/* text */}
         <Box sx={{ marginLeft: "20px", marginBottom: "20px" }}>
-          <Typography variant="h6" color="primary.light">
+          <Typography variant="h5" color="primary.light">
             Our Contact Us
           </Typography>
           <Typography variant="subtitle1" color="primary">

@@ -18,9 +18,10 @@ const ThemeProvidor: React.FC<ContainerProps> = ({ children }) => {
       mode: darkMode ? "dark" : "light",
       primary: {
         main: darkMode ? "#a8acd1" : "#2433bc",
+        // main: "#e79e9e",
         light: !darkMode ? "#5eabb2d1" : "#2b3c4f",
-        dark: "#ffff",
-        contrastText: "#ffff",
+        dark: "#2c365f",
+        contrastText: "#ffff", //text color
       },
       secondary: {
         main: darkMode ? "#12435f" : "#93e994",
@@ -87,6 +88,10 @@ const ThemeProvidor: React.FC<ContainerProps> = ({ children }) => {
       MuiButton: {
         styleOverrides: {
           root: {
+            "&:hover": {
+              // border: "11px solid",
+              bagroundColor: "#2c365f",
+            },
             textTransform: "none",
             fontSize: "8px",
             "@media (min-width:279px)": {
