@@ -141,7 +141,7 @@ const ContacControlsCardList = () => {
       ].map((arr, i) => {
         return (
           <>
-            <Stack direction="row" justifyContent="space-around">
+            <Stack direction="row" justifyContent="space-around" key={i}>
               {arr.map((item, i) => {
                 return (
                   <Paper

@@ -4,6 +4,7 @@ import { Box, Stack, Typography } from "@mui/material";
 import MainContainer from "@/component/container/MainContainer";
 import Button from "@mui/material/Button";
 import RoomIcon from "@mui/icons-material/Room";
+import Image from "next/image";
 
 const Hero = () => {
   return (
@@ -187,8 +188,10 @@ const ImageCard = () => {
         boxSizing: "border-box",
       }}
     >
-      <img
+      <Image
         src="/Screenshot 2023-10-02 152439.png"
+        width={1000}
+        height={1000}
         alt=""
         style={{
           width: "100%",
