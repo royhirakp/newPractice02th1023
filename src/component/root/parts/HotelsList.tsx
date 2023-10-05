@@ -26,6 +26,7 @@ import DeckIcon from "@mui/icons-material/Deck";
 import FreeBreakfastIcon from "@mui/icons-material/FreeBreakfast";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import Image from "next/image";
 const HotelsList = () => {
   return (
     <div>
@@ -124,8 +125,10 @@ const HotelProductCard: React.FC<{ item: { img: string } }> = ({ item }) => {
     >
       {/* IAMGE */}
       <Box sx={{ width: "100%", borderRadius: "10px" }}>
-        <img
+        <Image
           src={item.img}
+          width={1000}
+          height={1000}
           style={{
             width: "100%",
             height: "100%",

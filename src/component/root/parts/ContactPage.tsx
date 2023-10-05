@@ -6,6 +6,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import ChatIcon from "@mui/icons-material/Chat";
 import CallIcon from "@mui/icons-material/Call";
+import Image from "next/image";
 // main component
 const ContactPage = () => {
   return (
@@ -92,9 +93,11 @@ const RightSideImageContainer = () => {
           borderRadius: "7px",
         }}
       >
-        <img
+        <Image
           src="/hotelsphoto/Screenshot 2023-10-03 220328.png"
           alt=""
+          width={1000}
+          height={1000}
           style={{
             width: "100%",
             height: "100%",
@@ -140,45 +143,43 @@ const ContacControlsCardList = () => {
         ],
       ].map((arr, i) => {
         return (
-          <>
-            <Stack direction="row" justifyContent="space-around" key={i}>
-              {arr.map((item, i) => {
-                return (
-                  <Paper
-                    sx={{
-                      flexGrow: 1,
-                      // height: "100px",
-                      marginTop: "1rem",
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "space-evenly",
-                      // width: "16rem",
-                      maxWidth: {
-                        xs: "48%",
-                      },
-                      padding: "1rem",
-                      transition: "all 300ms ease-in",
-                      margin: {
-                        xs: "2px",
-                        // sm: 1,
-                      },
-                      "&:hover": {
-                        scale: "1.02",
-                        boxShadow: "1px 2px 5px",
-                      },
-                    }}
-                    key={i}
-                  >
-                    <ContactCardContains
-                      icon={item.icon}
-                      no={item.no}
-                      title={item.title}
-                    />
-                  </Paper>
-                );
-              })}
-            </Stack>
-          </>
+          <Stack direction="row" justifyContent="space-around" key={i * 0.0121}>
+            {arr.map((item, j) => {
+              return (
+                <Paper
+                  sx={{
+                    flexGrow: 1,
+                    // height: "100px",
+                    marginTop: "1rem",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-evenly",
+                    // width: "16rem",
+                    maxWidth: {
+                      xs: "48%",
+                    },
+                    padding: "1rem",
+                    transition: "all 300ms ease-in",
+                    margin: {
+                      xs: "2px",
+                      // sm: 1,
+                    },
+                    "&:hover": {
+                      scale: "1.02",
+                      boxShadow: "1px 2px 5px",
+                    },
+                  }}
+                  key={j * 0.255}
+                >
+                  <ContactCardContains
+                    icon={item.icon}
+                    no={item.no}
+                    title={item.title}
+                  />
+                </Paper>
+              );
+            })}
+          </Stack>
         );
       })}
     </>

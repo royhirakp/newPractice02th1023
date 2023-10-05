@@ -1,6 +1,7 @@
 import React from "react";
 import MainContainer from "@/component/container/MainContainer";
 import { Box, Stack, Typography } from "@mui/material";
+import Image from "next/image";
 const CompanyList = () => {
   return (
     <Box
@@ -16,16 +17,16 @@ const CompanyList = () => {
             Our Hotels
           </Typography>
         </Box>
-        <Stack direction="row" sx={{}}>
+        <Stack direction="row">
           {[
             { id: 1, url: "/company2.png" },
-            { id: 1, url: "/company3.png" },
-            { id: 1, url: "/company6.webp" },
-            { id: 1, url: "/company7.jpg" },
+            { id: 2, url: "/company3.png" },
+            { id: 3, url: "/company6.webp" },
+            { id: 4, url: "/company7.jpg" },
           ].map((item, i) => {
             return (
               <Box
-                key={i}
+                key={i * 0.01212}
                 flex="1 0 10px"
                 sx={{
                   padding: "0 auto",
@@ -33,23 +34,36 @@ const CompanyList = () => {
                   justifyContent: "center",
                 }}
               >
-                <div
-                  style={{
-                    width: "40%",
-                    height: "100%",
-                    display: "flex",
+                <Box
+                  sx={{
+                    // width: "50%",
+                    // height: "100%",
+                    // display: "flex",
+                    maxWidth: {
+                      xs: "50px",
+                      sm: "70px",
+                      md: "120px",
+                    },
+                    maxHeight: {
+                      xs: "30px",
+                      sm: "50px",
+                      md: "70px",
+                    },
                   }}
                 >
-                  <img
+                  <Image
                     src={item.url}
+                    width={1000}
+                    height={1000}
                     style={{
                       width: "100%",
+                      height: "100%",
                       margin: "auto 0 auto 0",
                       display: "block",
                     }}
                     alt=""
                   />
-                </div>
+                </Box>
               </Box>
             );
           })}

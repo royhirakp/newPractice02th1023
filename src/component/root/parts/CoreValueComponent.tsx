@@ -1,5 +1,6 @@
 import MainContainer from "@/component/container/MainContainer";
 import { Stack, Box, Typography, Paper } from "@mui/material";
+import Image from "next/image";
 import React, { useState } from "react";
 import {
   Accordion,
@@ -81,9 +82,11 @@ const ImagePart = () => {
         borderRadius: "7px",
       }}
     >
-      <img
+      <Image
         src="/hotelsphoto/Screenshot 2023-10-03 220127.png"
         alt=""
+        width={1000}
+        height={1000}
         style={{
           width: "100%",
           height: "100%",
@@ -104,11 +107,11 @@ const AcordionComponent = () => {
         {[
           { id: 1, title: "Best intrest rate on the market " },
           { id: 2, title: "Best price on the market" },
-          { id: 2, title: "Prevent Unstable Price" },
+          { id: 3, title: "Prevent Unstable Price" },
         ].map((item, i) => {
-          const [boxShadow, setBoxShadow] = useState(false);
+          // const [boxShadow, setBoxShadow] = useState(false);
           return (
-            <Paper sx={{ borderRadius: "8px" }} key={i}>
+            <Paper sx={{ borderRadius: "8px" }} key={i * 0.255}>
               <AccordionItem
                 key={i}
                 uuid={i}
@@ -119,7 +122,7 @@ const AcordionComponent = () => {
                   background: "white",
                   borderRadius: "5px",
                   overflow: "hidden",
-                  boxShadow: boxShadow ? "4px 4px 4px" : "",
+                  // boxShadow: boxShadow ? "4px 4px 4px" : "",
                 }}
               >
                 <AccordionItemHeading>
@@ -133,11 +136,11 @@ const AcordionComponent = () => {
                       // marginBottom: "1rem",
                     }}
                   >
-                    <AccordionItemState>
+                    {/* <AccordionItemState>
                       {({ expanded }) =>
                         expanded ? setBoxShadow(true) : setBoxShadow(false)
                       }
-                    </AccordionItemState>
+                    </AccordionItemState> */}
                     <Typography
                       variant="subtitle2"
                       sx={{

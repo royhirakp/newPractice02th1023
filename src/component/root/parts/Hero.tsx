@@ -186,6 +186,9 @@ const ImageCard = () => {
           // md: "100%",
         },
         boxSizing: "border-box",
+        border: "8px solid",
+        borderTopLeftRadius: "50%",
+        borderTopRightRadius: "50%",
       }}
     >
       <Image
@@ -198,7 +201,6 @@ const ImageCard = () => {
           height: "100%",
           borderTopLeftRadius: "50%",
           borderTopRightRadius: "50%",
-          border: "5px solid",
         }}
       />
     </Box>
