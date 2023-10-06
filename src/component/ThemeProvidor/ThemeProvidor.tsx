@@ -34,10 +34,10 @@ const ThemeProvidor: React.FC<ContainerProps> = ({ children }) => {
         secondary: !darkMode ? "#5eabb2d1" : "#2b3c4f",
         disabled: "#ffff",
       },
-      error: {
-        main: darkMode ? "#0b293a" : "#b2d9ef",
-        light: darkMode ? "#0b293a" : "#b2d9ef",
-      },
+      // error: {
+      //   main: darkMode ? "#0b293a" : "#b2d9ef",
+      //   light: darkMode ? "#0b293a" : "#b2d9ef",
+      // },
       background: {
         default: darkMode ? "#0b293a" : "#b2d9ef",
         paper: darkMode ? "#2a2828" : "#d9d4d4 ",
@@ -93,12 +93,12 @@ const ThemeProvidor: React.FC<ContainerProps> = ({ children }) => {
               bagroundColor: "#2c365f",
             },
             textTransform: "none",
-            fontSize: "8px",
+            fontSize: "10px",
             "@media (min-width:279px)": {
-              fontSize: "8px", // Adjust font size for screens with a minimum width of 600px (sm)
+              fontSize: "10px", // Adjust font size for screens with a minimum width of 600px (sm)
             },
             "@media (min-width:600px)": {
-              fontSize: "10px", // Adjust font size for screens with a minimum width of 600px (sm)
+              fontSize: "12px", // Adjust font size for screens with a minimum width of 600px (sm)
             },
             "@media (min-width:960px)": {
               fontSize: "13px", // Adjust font size for screens with a minimum width of 960px (md)
