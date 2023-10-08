@@ -1,18 +1,13 @@
-"use client";
-import React, { useState } from "react";
-import MainContainer from "@/component/container/MainContainer";
-import { Box, Stack, Typography, Button, Paper } from "@mui/material";
-import TextField from "@mui/material/TextField";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { FormControl } from "@mui/material";
 import MeterialUiSelect from "@/muiCoustomComponent/MeterialUiSelect";
+import { Box, Stack } from "@mui/material";
 
-const MultiStepFormSingup2: React.FC<FormFirstPartProps> = ({
-  register,
-  handleSubmit,
-  errors,
-  fromState,
-}) => {
+interface MeterialUiSelectProps {
+  register: any;
+  handleSubmit: any;
+}
+
+export default function MultiStepFormSingup2(props: MeterialUiSelectProps) {
+  const { handleSubmit, register } = props;
   return (
     <>
       <Stack
@@ -20,7 +15,8 @@ const MultiStepFormSingup2: React.FC<FormFirstPartProps> = ({
           width: "100%",
           justifyContent: "center",
           alignItems: "center",
-          height: "100%",
+          height: "90%",
+          // border: "1px solid",
         }}
       >
         <Box
@@ -29,7 +25,6 @@ const MultiStepFormSingup2: React.FC<FormFirstPartProps> = ({
             display: "flex",
             justifyContent: "space-around",
             alignItems: "center",
-            border: "1px solid",
             flexDirection: {
               xs: "column",
               sm: "row",
@@ -40,11 +35,24 @@ const MultiStepFormSingup2: React.FC<FormFirstPartProps> = ({
           <MeterialUiSelect
             selectedValue="Age Range"
             options={["18-24", "25-35", "36-46", "47 and more"]}
+            formKey="age"
+            handleSubmit={handleSubmit}
+            register={register}
           />
 
           <MeterialUiSelect
             selectedValue="Country"
             options={["India", "others"]}
+            formKey="country"
+            handleSubmit={handleSubmit}
+            register={register}
+          />
+          <MeterialUiSelect
+            selectedValue="Gender"
+            options={["Male", "Female", "Others"]}
+            formKey="gender"
+            handleSubmit={handleSubmit}
+            register={register}
           />
           {/* {errors.email && <span>email letters</span>} */}
         </Box>
@@ -62,19 +70,9 @@ const MultiStepFormSingup2: React.FC<FormFirstPartProps> = ({
             },
           }}
         >
-          <MeterialUiSelect
-            selectedValue="Gender"
-            options={["Male", "Female", "Others"]}
-          />
-          <MeterialUiSelect
-            selectedValue="Gender"
-            options={["Male", "Female", "Others"]}
-          />
           {/* {errors.email && <span>email letters</span>} */}
         </Box>
       </Stack>
     </>
   );
-};
-
-export default MultiStepFormSingup2;
+}

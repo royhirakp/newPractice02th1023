@@ -26,7 +26,7 @@ const ThemeProvidor: React.FC<ContainerProps> = ({ children }) => {
       secondary: {
         main: darkMode ? "#12435f" : "#93e994",
         light: darkMode ? "#676464" : "#dcd5d5",
-        dark: darkMode ? "#9b9c9d" : "#f0f8ff",
+        dark: darkMode ? "#c8e0f5" : "#f0f8ff",
         contrastText: "#ffff",
       },
       text: {
