@@ -14,9 +14,11 @@ const StoreProvidor: React.FC<{ children: React.ReactNode }> = ({
   let persistor = persistStore(store);
   return (
     <>
-      <PersistGate loading={null} persistor={persistor}>
-        <Provider store={store}>{children}</Provider>
-      </PersistGate>
+      {/* <PersistGate loading={null} persistor={persistor}>
+        <Provider store={store}> */}
+      {children}
+      {/* </Provider>
+      </PersistGate> */}
     </>
   );
 };
