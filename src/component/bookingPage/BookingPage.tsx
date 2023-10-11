@@ -1,11 +1,15 @@
 "use client";
-import { Box, Stack, Typography } from "@mui/material";
-import React from "react";
-import RoomList from "./parts/RoomList";
-import RoomListControls from "./parts/RoomListControls";
+import { Box, Button, Stack } from "@mui/material";
+import React, { useState } from "react";
 import ProgressBar from "./parts/ProgressBar";
+import BookingPageSearch from "./parts/FourStepsOfBooking/BookingPageSearch";
+import BookingInformationPage from "./parts/FourStepsOfBooking/BookingInformationPage";
+import CheckoutInformationPage from "./parts/FourStepsOfBooking/CheckoutInformationPage";
+import ConfermationPage from "./parts/FourStepsOfBooking/ConfermationPage";
 
 const BookingPage = () => {
+  const [state, setState] = useState(0);
+
   return (
     <div>
       <Stack
@@ -17,31 +21,71 @@ const BookingPage = () => {
           },
         }}
       >
-        <Box>
-          <ProgressBar />
+        <Box p={1} sx={{ padding: "2% 0" }}>
+          <ProgressBar state={state} />
         </Box>
-        <Typography variant="subtitle1">Booking Details</Typography>
-        <Stack direction="row" position="relative">
-          <Box
-            flex={1.5}
-            sx={{
-              display: {
-                xs: "none",
-                md: "block",
-              },
-              position: "sticky",
-              top: "50px",
+        <>
+          <Button
+            onClick={() => {
+              console.log("bdhdhdb");
+              setState(state + 1);
             }}
           >
-            <RoomListControls />
-          </Box>
-          <Box flex={5}>
-            <RoomList />
-          </Box>
-        </Stack>
+            +++++++
+          </Button>
+          {state}
+          <Button onClick={() => setState(state - 1)}>-----------</Button>
+          <MultiStepForm state={state} setState={setState} />
+        </>
       </Stack>
     </div>
   );
 };
 
 export default BookingPage;
+
+const MultiStepForm = ({
+  state,
+  setState,
+}: {
+  state: number;
+  setState: any;
+}) => {
+  let element;
+
+  switch (state) {
+    case 0:
+      element = (
+        <>
+          <BookingPageSearch setState={setState} />
+        </>
+      );
+      break;
+    case 1:
+      element = (
+        <>
+          <BookingInformationPage />
+        </>
+      );
+      break;
+    case 2:
+      element = (
+        <>
+          <CheckoutInformationPage />
+        </>
+      );
+      break;
+
+    case 3:
+      element = (
+        <>
+          <ConfermationPage />
+        </>
+      );
+      break;
+
+    default:
+      element = "Hello!";
+  }
+  return <>{element}</>;
+};

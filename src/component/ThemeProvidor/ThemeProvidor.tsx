@@ -17,29 +17,32 @@ const ThemeProvidor: React.FC<ContainerProps> = ({ children }) => {
     palette: {
       mode: darkMode ? "dark" : "light",
       primary: {
-        main: darkMode ? "#a8acd1" : "#2433bc",
+        main: darkMode ? "#6c826f" : "#088d45",
         // main: "#e79e9e",
-        light: !darkMode ? "#5eabb2d1" : "#2b3c4f",
+        light: !darkMode ? "#e69b9b24" : "#0a1b18f5",
         dark: "#2c365f",
-        contrastText: "#ffff", //text color
+        // contrastText: "#ffff", //text color
       },
       secondary: {
-        main: darkMode ? "#12435f" : "#93e994",
+        main: darkMode ? "#eaf4e4" : "#13492c",
         light: darkMode ? "#676464" : "#dcd5d5",
         dark: darkMode ? "#c8e0f5" : "#f0f8ff",
         contrastText: "#ffff",
       },
       text: {
-        primary: darkMode ? "#ffff" : "#424452",
-        secondary: !darkMode ? "#5eabb2d1" : "#2b3c4f",
-        disabled: "#ffff",
+        // primary: darkMode ? "#ffff" : "#424452",
+        // for check box
+        secondary: !darkMode ? "#5eabb2d1" : "#FFFF",
+        // disabled: "#ffff",
       },
       // error: {
       //   main: darkMode ? "#0b293a" : "#b2d9ef",
       //   light: darkMode ? "#0b293a" : "#b2d9ef",
       // },
       background: {
-        default: darkMode ? "#0b293a" : "#b2d9ef",
+        default: darkMode ? "#0b293a" : "#e6f0fa",
+        // #e6f0fa
+
         paper: darkMode ? "#2a2828" : "#d9d4d4 ",
       },
     },

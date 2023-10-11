@@ -45,7 +45,9 @@ export default function DashboardLayout({
                 }}
               >
                 {/* header */}
-                <div style={{}}>
+                <div
+                // style={{ position: "fixed", zIndex: 99, width: "100%" }}
+                >
                   <HeaderComponent />
                 </div>
 
@@ -53,11 +55,11 @@ export default function DashboardLayout({
                 <Box
                   sx={{
                     flexGrow: 1,
-                    marginTop: {
-                      xs: "0px",
-                      sm: "0px",
-                      md: "20px",
-                    },
+                    // marginTop: {
+                    //   xs: "120px",
+                    //   sm: "130px",
+                    //   md: "140px",
+                    // },
                   }}
                 >
                   {children}

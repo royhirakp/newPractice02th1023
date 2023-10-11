@@ -6,7 +6,6 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { FormControl } from "@mui/material";
 import MultiStepFormSingup2 from "@/component/singupcomponents/MultiStepFormSingup2";
 import MultiStepFormSingup1 from "@/component/singupcomponents/MultistepSingUpForm1";
-// import { LoginButton } from "@/muiCoustomComponent/MuiButtons";
 type Inputs = {
   firstname: string;
   lastName: string;
@@ -81,8 +80,6 @@ const Singup = () => {
           <Box
             sx={{
               width: "100%",
-
-              // width: { xs: "95%", sm: "550px", md: "700px", lg: "900px" },
             }}
             className="fromcomtainer"
           >
@@ -181,14 +178,8 @@ const MultiStepForm: React.FC<FormFirstPartProps> = ({
       message = (
         <>
           <MultiStepFormSingup2
-            // fromState={fromState}
-            // errors={errors}
             register={register}
             handleSubmit={handleSubmit}
-            // emalValidatinS={emalValidatinS}
-            // setMobileValidation={setMobileValidation}
-            // mobileValidation={mobileValidation}
-            // setemalValidatinS={setemalValidatinS}
           />
         </>
       );

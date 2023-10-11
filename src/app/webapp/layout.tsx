@@ -87,7 +87,7 @@ const HeaderComponent = () => {
           <Box
             color="primary.main"
             bgcolor="primary.light"
-            sx={{ padding: "15px 0 0 0" }}
+            sx={{ padding: "20px 0 5px 0" }}
           >
             <Header />
             <Divider />

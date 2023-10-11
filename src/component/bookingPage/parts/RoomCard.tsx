@@ -16,7 +16,7 @@ const responsiveIconSize = {
     md: "large",
   },
 };
-const RoomCard = () => {
+const RoomCard = ({ setState }: { setState: any }) => {
   return (
     <Paper>
       <Stack direction="row">
@@ -48,7 +48,7 @@ const RoomCard = () => {
             flex: 2.5,
           }}
         >
-          <BookingAction />
+          <BookingAction setState={setState} />
         </Box>
       </Stack>
     </Paper>
@@ -86,23 +86,50 @@ const RoomdetailsContainer = () => {
       }}
     >
       <Stack>
-        <Typography variant="subtitle1">Singel room</Typography>
+        <Typography variant="subtitle1" color="primary">
+          Singel room
+        </Typography>
         <Typography variant="body1">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
           quibusdam ipsa voluptatibus? Ver
         </Typography>
       </Stack>
       <Box sx={{ paddingTop: "3%" }}>
-        <Typography variant="subtitle2">Services</Typography>
+        <Typography
+          variant="subtitle2"
+          color="secondary"
+          sx={{ paddingBottom: "2%" }}
+        >
+          Services
+        </Typography>
         <Stack direction="row" gap={1}>
           {[
             {
               id: 1,
-              icon: <TvIcon sx={responsiveIconSize} />,
+              icon: <TvIcon sx={{ ...responsiveIconSize, color: "#e425d5" }} />,
             },
-            { id: 1, icon: <PoolIcon sx={responsiveIconSize} /> },
-            { id: 1, icon: <LocalBarIcon sx={responsiveIconSize} /> },
-            { id: 1, icon: <RestaurantIcon sx={responsiveIconSize} /> },
+            {
+              id: 1,
+              icon: (
+                <PoolIcon sx={{ ...responsiveIconSize, color: "#1b6eb6" }} />
+              ),
+            },
+            {
+              id: 1,
+              icon: (
+                <LocalBarIcon
+                  sx={{ ...responsiveIconSize, color: "#3545d5" }}
+                />
+              ),
+            },
+            {
+              id: 1,
+              icon: (
+                <RestaurantIcon
+                  sx={{ ...responsiveIconSize, color: "#195e34" }}
+                />
+              ),
+            },
             // { id: 1, icon: <BathtubIcon sx={responsiveIconSize} /> },
             // { id: 1, icon: <WifiIcon sx={responsiveIconSize} /> },
           ].map((item, i) => {
@@ -114,7 +141,7 @@ const RoomdetailsContainer = () => {
   );
 };
 
-const BookingAction = () => {
+const BookingAction = ({ setState }: { setState: any }) => {
   return (
     <Box
       sx={{
@@ -138,8 +165,12 @@ const BookingAction = () => {
           variant="contained"
           sx={{
             "&.MuiButtonBase-root": {
-              fontSize: { xs: "10px", sm: "11px", md: "12px" },
+              // padding: "11%",
+              fontSize: { xs: "7px", sm: "9px", md: "9px" },
             },
+          }}
+          onClick={() => {
+            setState(1);
           }}
         >
           select booking
