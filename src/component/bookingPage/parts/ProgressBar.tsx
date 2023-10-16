@@ -15,19 +15,18 @@ const ProgressBar = ({ state }: { state: number }) => {
             { item: "Search" },
             { item: "Booking" },
             { item: "Checkout" },
-            { item: "Confermation" },
             // { item: "" },
           ].map((item, i) => {
             return (
-              <Box sx={{ border: "1px solid" }} key={i} flex={1}>
+              <Box key={i} flex={1}>
                 <Typography variant="body1">{item.item}</Typography>
               </Box>
             );
           })}
         </Stack>
       </Box>
-      <Box sx={{ width: "100%", border: "1px solid" }}>
-        <MuiLinearProgreson value={25 * state} />
+      <Box sx={{ width: "100%" }}>
+        <MuiLinearProgreson value={33.33 * state} />
       </Box>
       <Box
         sx={{
@@ -47,11 +46,10 @@ const ProgressBar = ({ state }: { state: number }) => {
             { item: "Chouse your fabaret room" },
             { item: "Enter Your booking details" },
             { item: "Chouse your fabaret room" },
-            { item: "Chouse your fabaret room" },
             // { item: "" },
           ].map((item, i) => {
             return (
-              <Box sx={{ border: "1px solid" }} flex={1} key={i}>
+              <Box flex={1} key={i}>
                 <Typography variant="body2">{item.item}</Typography>
               </Box>
             );

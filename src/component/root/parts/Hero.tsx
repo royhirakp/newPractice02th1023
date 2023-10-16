@@ -5,7 +5,7 @@ import MainContainer from "@/component/container/MainContainer";
 import Button from "@mui/material/Button";
 import RoomIcon from "@mui/icons-material/Room";
 import Image from "next/image";
-
+import { useRouter } from "next/navigation";
 const Hero = () => {
   return (
     <div>
@@ -62,6 +62,7 @@ const Hero = () => {
 export default Hero;
 
 const TEXTDataCard = () => {
+  const router = useRouter();
   return (
     <>
       <Box justifyContent="center" alignItems="center">
@@ -89,12 +90,7 @@ const TEXTDataCard = () => {
               md: "350px",
               lg: "400px",
             },
-            // minWidth: {
-            //   xs: "225px",
-            //   sm: "225px",
-            //   md: "225px",
-            //   lg: "320px",
-            // },
+
             margin: {
               xs: "20px auto",
               sm: "20px 0",
@@ -131,7 +127,14 @@ const TEXTDataCard = () => {
           type="text"
           style={{ width: "80%", height: "90%", border: "none" }}
         />
-        <Button variant="contained">Search</Button>
+        <Button
+          onClick={() => {
+            router.push("/bookingPage");
+          }}
+          variant="contained"
+        >
+          Search
+        </Button>
       </Box>
 
       <Stack

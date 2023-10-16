@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Divider } from "@mui/material";
 
-export default function ProsidToCheckout() {
+export default function ProsidToCheckout({ handelNext }: { handelNext: any }) {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -64,7 +64,14 @@ export default function ProsidToCheckout() {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button variant="contained">Process to checkout</Button>
+        <Button
+          fullWidth
+          variant="contained"
+          sx={{ borderRadius: "0" }}
+          onClick={handelNext}
+        >
+          Process to checkout
+        </Button>
       </CardActions>
     </Card>
   );

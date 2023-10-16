@@ -6,9 +6,7 @@ import TvIcon from "@mui/icons-material/Tv";
 import PoolIcon from "@mui/icons-material/Pool";
 import LocalBarIcon from "@mui/icons-material/LocalBar";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
-import BathtubIcon from "@mui/icons-material/Bathtub";
-import WifiIcon from "@mui/icons-material/Wifi";
-
+import { useRouter } from "next/navigation";
 const responsiveIconSize = {
   fontSize: {
     xs: "small",
@@ -16,36 +14,53 @@ const responsiveIconSize = {
     md: "large",
   },
 };
-const RoomCard = ({ setState }: { setState: any }) => {
+const RoomCard = ({ setState, id }: { setState: any; id: string }) => {
+  const router = useRouter();
+
   return (
     <Paper>
       <Stack direction="row">
-        <Box
-          sx={{
-            flex: 4,
-            justifyContent: "center",
-            alignItems: "center",
-            display: { xs: "none", sm: "flex" },
+        <div
+          onClick={() => {
+            router.push(`/room/${id}`);
           }}
-          minWidth={19}
-          maxWidth={320}
-        >
-          <ImageContainer />
-        </Box>
-
-        <Box
-          sx={{
-            flex: 5,
+          style={{
+            cursor: "pointer",
             display: "flex",
-            alignItems: "center",
+            flexDirection: "row",
           }}
         >
-          <RoomdetailsContainer />
-        </Box>
-        <Divider orientation="vertical" flexItem />
+          <Box
+            sx={{
+              flex: 4,
+              justifyContent: "center",
+              alignItems: "center",
+              display: { xs: "none", sm: "flex" },
+            }}
+            minWidth={19}
+            maxWidth={320}
+          >
+            <ImageContainer />
+          </Box>
+
+          <Box
+            sx={{
+              flex: 5,
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <RoomdetailsContainer />
+          </Box>
+        </div>
         <Box
           sx={{
             flex: 2.5,
+            minWidth: {
+              xs: "100px",
+              sm: "110px",
+              md: "150px",
+            },
           }}
         >
           <BookingAction setState={setState} />

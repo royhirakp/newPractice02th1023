@@ -9,11 +9,16 @@ import ConfermationPage from "./parts/FourStepsOfBooking/ConfermationPage";
 
 const BookingPage = () => {
   const [state, setState] = useState(0);
+  function handelPrevious() {
+    if (state > 0) setState(state - 1);
+  }
+  function handelNext() {
+    if (state < 3) setState(state + 1);
+  }
 
   return (
     <div>
       <Stack
-        border="1px solid"
         sx={{
           padding: {
             xs: "0",
@@ -21,21 +26,19 @@ const BookingPage = () => {
           },
         }}
       >
-        <Box p={1} sx={{ padding: "2% 0" }}>
+        <Box p={1} sx={{ padding: "1% 0" }}>
           <ProgressBar state={state} />
         </Box>
         <>
-          <Button
-            onClick={() => {
-              console.log("bdhdhdb");
-              setState(state + 1);
-            }}
-          >
-            +++++++
-          </Button>
+          {/* <Button onClick={handelPrevious}>+++++++</Button>
           {state}
-          <Button onClick={() => setState(state - 1)}>-----------</Button>
-          <MultiStepForm state={state} setState={setState} />
+          <Button onClick={handelNext}>-----------</Button> */}
+          <MultiStepForm
+            state={state}
+            setState={setState}
+            handelNext={handelNext}
+            handelPrevious={handelPrevious}
+          />
         </>
       </Stack>
     </div>
@@ -47,9 +50,13 @@ export default BookingPage;
 const MultiStepForm = ({
   state,
   setState,
+  handelNext,
+  handelPrevious,
 }: {
   state: number;
   setState: any;
+  handelNext: any;
+  handelPrevious: any;
 }) => {
   let element;
 
@@ -64,14 +71,17 @@ const MultiStepForm = ({
     case 1:
       element = (
         <>
-          <BookingInformationPage />
+          <BookingInformationPage
+            handelNext={handelNext}
+            handelPrevious={handelPrevious}
+          />
         </>
       );
       break;
     case 2:
       element = (
         <>
-          <CheckoutInformationPage />
+          <CheckoutInformationPage handelNext={handelNext} />
         </>
       );
       break;

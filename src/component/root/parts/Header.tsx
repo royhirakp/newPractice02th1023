@@ -1,13 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import MainContainer from "@/component/container/MainContainer";
 import { Box, Stack, Typography, Button } from "@mui/material";
 import Image from "next/image";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Avatar from "@mui/material/Avatar";
-
-import SearchBar from "./SearchBar";
 import MenuDrawer from "./MenuDrawer";
 import LoginIcon from "@mui/icons-material/Login";
 const LogoAndMenu = () => {
@@ -82,18 +80,7 @@ const headerArrr = [
 
   {
     style: {
-      // padding:"0px"
-      // margin: "50px",
       display: "flex",
-      justifyContent: "center",
-    },
-    flexGrow: 3,
-    component: <SearchBar />,
-  },
-
-  {
-    style: {
-      display: { xs: "none", md: "flex" },
       justifyContent: "flex-end",
       alignItems: "center",
     },
@@ -112,24 +99,6 @@ const Header = () => {
             </Box>
           );
         })}
-        {/* <Box
-          border="1px solid"
-          sx={{ display: "flex", flexDirection: "row" }}
-          flexGrow={1}
-          bgcolor="blanchedalmond"
-        >
-          <LogoAndMenu />
-        </Box> */}
-        {/* <Box border="1px solid" flexGrow={3} p={1}>
-          <SearchBar />
-        </Box> */}
-        {/* <Box
-          border="1px solid"
-          flexGrow={2}
-          sx={{ display: { xs: "none", md: "flex" }, alignItems: "center" }}
-        >
-          <ProfileAndLogout />
-        </Box> */}
       </Stack>
     </MainContainer>
   );

@@ -82,12 +82,12 @@ const SwiperComponent = () => {
         <SwiperControlButton />
       </Box>
       {[
-        { img: "/hotelsphoto/g.png" },
-        { img: "/hotelsphoto/Screenshot 2023-10-03 220306.png" },
-        { img: "/hotelsphoto/Screenshot 2023-10-03 220306.png" },
-        { img: "/hotelsphoto/Screenshot 2023-10-03 220328.png" },
-        { img: "/hotelsphoto/Screenshot 2023-10-03 220355.png" },
-        { img: "/hotelsphoto/Screenshot 2023-10-03 220127.png" },
+        { img: "/hotelsphoto/g.png", id: "1" },
+        { img: "/hotelsphoto/Screenshot 2023-10-03 220306.png", id: "2" },
+        { img: "/hotelsphoto/Screenshot 2023-10-03 220306.png", id: "3" },
+        { img: "/hotelsphoto/Screenshot 2023-10-03 220328.png", id: "4" },
+        { img: "/hotelsphoto/Screenshot 2023-10-03 220355.png", id: "5" },
+        { img: "/hotelsphoto/Screenshot 2023-10-03 220127.png", id: "6" },
       ].map((item, i) => {
         return (
           <SwiperSlide key={i}>
@@ -98,7 +98,9 @@ const SwiperComponent = () => {
     </Swiper>
   );
 };
-const HotelProductCard: React.FC<{ item: { img: string } }> = ({ item }) => {
+const HotelProductCard: React.FC<{ item: { img: string; id: string } }> = ({
+  item,
+}) => {
   return (
     <Paper
       elevation={12}
@@ -165,13 +167,14 @@ const HotelProductCard: React.FC<{ item: { img: string } }> = ({ item }) => {
         >
           Services
         </Typography>
-        <CardActions />
+        <CardActions id={item.id} />
       </Box>
     </Paper>
   );
 };
-
-const CardActions = () => {
+import { useRouter } from "next/navigation";
+const CardActions = ({ id }: { id: string }) => {
+  const router = useRouter();
   return (
     <>
       <Stack
@@ -188,7 +191,14 @@ const CardActions = () => {
         <DeckIcon color="primary" />
       </Stack>
       <Stack mt={3} sx={{}}>
-        <Button variant="contained">Book Now</Button>
+        <Button
+          onClick={() => {
+            router.push(`/room/${id}`);
+          }}
+          variant="contained"
+        >
+          Book Now
+        </Button>
       </Stack>
     </>
   );

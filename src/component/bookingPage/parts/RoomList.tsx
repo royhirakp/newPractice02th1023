@@ -6,7 +6,17 @@ const RoomList = ({ setState }: { setState: any }) => {
   return (
     <div>
       <Stack gap={1}>
-        <RoomCard setState={setState} />
+        <RoomCard setState={setState} id="1" />
+        <RoomCard setState={setState} id="1" />
+        <RoomCard setState={setState} id="1" />
+        <RoomCard setState={setState} id="1" />
+        <RoomCard setState={setState} id="1" />
+        <RoomCard setState={setState} id="1" />
+        <RoomCard setState={setState} id="1" />
+        <RoomCard setState={setState} id="1" />
+        <RoomCard setState={setState} id="1" />
+        <RoomCard setState={setState} id="1" />
+        <RoomCard setState={setState} id="1" />
       </Stack>
     </div>
   );

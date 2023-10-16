@@ -9,7 +9,6 @@ const RoomListControls = () => {
       sx={{
         position: "sticky",
         top: "15px",
-        border: "1px solid",
         display: "flex",
         flexDirection: "column",
         maxHeight: "930px",

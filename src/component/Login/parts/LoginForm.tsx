@@ -13,6 +13,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import GoogleIcon from "@mui/icons-material/Google";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 type Inputs = {
   email: string;
   password: string;
@@ -37,7 +38,10 @@ const LoginButton = styled(Button)(({ theme }) => ({
 // Define custom styles for the button
 
 const LoginForm = () => {
+  const router = useRouter();
+
   const formSubmit = (event: any) => {
+    router.push("/webapp");
     event.preventDefault();
     console.log("formData", event); // Replace this with your actual form submission logic
   };
@@ -49,6 +53,7 @@ const LoginForm = () => {
     formState: { errors },
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => {
+    router.push("/webapp");
     console.log(data);
   };
 

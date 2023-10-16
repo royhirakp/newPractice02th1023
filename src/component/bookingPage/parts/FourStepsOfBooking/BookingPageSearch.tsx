@@ -9,7 +9,7 @@ import RoomList from "../RoomList";
 const BookingPageSearch = ({ setState }: { setState: any }) => {
   return (
     <div>
-      <Box p={1}>
+      <Box>
         <FilterDataDisplayForMobileMODAL />
       </Box>
 
@@ -24,18 +24,16 @@ const BookingPageSearch = ({ setState }: { setState: any }) => {
             // top: "50px",
             maxWidth: "500px",
             minWidth: "240px",
-            border: "1px solid red",
           }}
         >
           <RoomListControls />
         </Box>
-        <Box flex={5}>
+        <Box flex={5} mt={2}>
           <RoomList setState={setState} />
         </Box>
       </Stack>
       <Box
         sx={{
-          border: "1px solid",
           display: "flex",
           justifyContent: "center",
           padding: "1% 0",

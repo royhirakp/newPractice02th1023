@@ -88,6 +88,13 @@ const ThemeProvidor: React.FC<ContainerProps> = ({ children }) => {
     },
 
     components: {
+      MuiSvgIcon: {
+        styleOverrides: {
+          root: {
+            color: darkMode ? "#6c826f" : "#088d45",
+          },
+        },
+      },
       MuiButton: {
         styleOverrides: {
           root: {

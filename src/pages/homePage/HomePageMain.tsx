@@ -19,7 +19,6 @@ const HomePageMain = () => {
       <CoreValueComponent />
       <Divider />
       <ContactPage />
-
       <StartyourJourneycomponent />
     </div>
   );
