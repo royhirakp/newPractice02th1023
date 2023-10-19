@@ -14,15 +14,16 @@ const responsiveIconSize = {
     md: "large",
   },
 };
-const RoomCard = ({ setState, id }: { setState: any; id: string }) => {
+const RoomCard = ({ setState, item }: { setState: any; item: any }) => {
   const router = useRouter();
-
+  const { title, abalableServices, describtion, pricePerNight, imageurl } =
+    item;
   return (
     <Paper>
       <Stack direction="row">
         <div
           onClick={() => {
-            router.push(`/room/${id}`);
+            router.push(`/room/${item.id}`);
           }}
           style={{
             cursor: "pointer",
@@ -40,7 +41,7 @@ const RoomCard = ({ setState, id }: { setState: any; id: string }) => {
             minWidth={19}
             maxWidth={320}
           >
-            <ImageContainer />
+            <ImageContainer imageurl={imageurl} />
           </Box>
 
           <Box
@@ -50,7 +51,11 @@ const RoomCard = ({ setState, id }: { setState: any; id: string }) => {
               alignItems: "center",
             }}
           >
-            <RoomdetailsContainer />
+            <RoomdetailsContainer
+              title={title}
+              abalableServices={abalableServices}
+              describtion={describtion}
+            />
           </Box>
         </div>
         <Box
@@ -63,7 +68,7 @@ const RoomCard = ({ setState, id }: { setState: any; id: string }) => {
             },
           }}
         >
-          <BookingAction setState={setState} />
+          <BookingAction setState={setState} pricePerNight={pricePerNight} />
         </Box>
       </Stack>
     </Paper>
@@ -72,12 +77,12 @@ const RoomCard = ({ setState, id }: { setState: any; id: string }) => {
 
 export default RoomCard;
 
-const ImageContainer = () => {
+const ImageContainer = ({ imageurl }: { imageurl: string }) => {
   return (
     <Box display="flex">
       <Image
         alt="xsgjhsa"
-        src="/RoomBookingpage/room1.jpg"
+        src={imageurl}
         width={500}
         height={500}
         style={{
@@ -91,7 +96,15 @@ const ImageContainer = () => {
   );
 };
 
-const RoomdetailsContainer = () => {
+const RoomdetailsContainer = ({
+  title,
+  abalableServices,
+  describtion,
+}: {
+  title: string;
+  abalableServices: string;
+  describtion: string;
+}) => {
   return (
     <Box
       sx={{
@@ -102,11 +115,12 @@ const RoomdetailsContainer = () => {
     >
       <Stack>
         <Typography variant="subtitle1" color="primary">
-          Singel room
+          {title}
         </Typography>
         <Typography variant="body1">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
           quibusdam ipsa voluptatibus? Ver
+          {describtion}
         </Typography>
       </Stack>
       <Box sx={{ paddingTop: "3%" }}>
@@ -156,7 +170,13 @@ const RoomdetailsContainer = () => {
   );
 };
 
-const BookingAction = ({ setState }: { setState: any }) => {
+const BookingAction = ({
+  setState,
+  pricePerNight,
+}: {
+  setState: any;
+  pricePerNight: any;
+}) => {
   return (
     <Box
       sx={{
@@ -172,7 +192,7 @@ const BookingAction = ({ setState }: { setState: any }) => {
         sx={{ paddingBottom: "2%" }}
         color="error"
       >
-        $30
+        ${pricePerNight}
       </Typography>
       <Typography variant="body2">Per night</Typography>
       <Stack sx={{ paddingTop: "8%" }}>

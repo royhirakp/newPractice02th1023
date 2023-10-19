@@ -1,8 +1,8 @@
 import { Box } from "@mui/material";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
-const ImageConatiner = () => {
-  const images = [
+const ImageConatiner = ({ images }: { images: any }) => {
+  const imagesArray = [
     {
       original: "/RoomBookingpage/room1.jpg",
       thumbnail: "/RoomBookingpage/room1.jpg",
@@ -49,7 +49,11 @@ const ImageConatiner = () => {
         // },
       }}
     >
-      <ImageGallery items={images} autoPlay={false} showPlayButton={false} />
+      <ImageGallery
+        items={imagesArray}
+        autoPlay={false}
+        showPlayButton={false}
+      />
     </Box>
   );
 };

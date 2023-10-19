@@ -2,10 +2,15 @@ import * as React from "react";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { addFilterQuery } from "@/redux/slices/FilterSlice";
 
-interface componentProps {}
 const IncludeServicesCheckBox = () => {
-  const [checkedItems, setCheckedItems] = React.useState({
+  const dispatch = useAppDispatch();
+  // const data = useAppSelector((s) => s.Filterslice);
+  const [checkedItems, setCheckedItems] = React.useState<{
+    [key: string]: boolean;
+  }>({
     smartPhone: false,
     miniBar: false,
     Sauna: false,
@@ -18,10 +23,23 @@ const IncludeServicesCheckBox = () => {
   const handleCheckboxChange = (event: any, label: string) => {
     const { name, checked } = event.target;
     // console.log(checkedItems);
+    // console.log("name, checked====", name, checked, event.target);
     setCheckedItems({
       ...checkedItems,
       [label]: checked,
     });
+    let services: {
+      [key: string]: boolean;
+    } = {};
+    for (let i in checkedItems) {
+      if (checkedItems.hasOwnProperty(i)) {
+        const value = checkedItems[i];
+        // console.log(i, value);
+        services[i] = value;
+      }
+    }
+    // console.log(services);
+    dispatch(addFilterQuery({ type: "services", value: services }));
   };
 
   return (

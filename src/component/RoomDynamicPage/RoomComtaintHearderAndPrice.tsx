@@ -2,7 +2,13 @@ import React from "react";
 import { Box, Typography, Stack, Paper, Button } from "@mui/material";
 import MainContainer from "@/component/container/MainContainer";
 
-const RoomComtaintHearderAndPrice = () => {
+const RoomComtaintHearderAndPrice = ({
+  title,
+  pricePerNight,
+}: {
+  title: any;
+  pricePerNight: any;
+}) => {
   const [open, setOpen] = React.useState(false);
   function handelModal() {
     setOpen(true);
@@ -37,7 +43,7 @@ const RoomComtaintHearderAndPrice = () => {
                 variant="h5"
                 sx={{ fontSize: { xs: "18px", sm: "20px" } }}
               >
-                Single Room
+                {title}
               </Typography>
               <Typography
                 variant="body1"
@@ -64,7 +70,7 @@ const RoomComtaintHearderAndPrice = () => {
               alignItems="center"
             >
               <Typography variant="h6" fontWeight={700}>
-                $30
+                ${pricePerNight}
               </Typography>
               <Typography variant="body1">per night</Typography>
 

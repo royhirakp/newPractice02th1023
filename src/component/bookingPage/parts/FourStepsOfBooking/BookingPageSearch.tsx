@@ -5,8 +5,11 @@ import PaginationRounded from "@/muiCoustomComponent/Pagination";
 import FilterDataDisplayForMobileMODAL from "../FilterDataDisplayForMobileMODAL";
 import RoomListControls from "../RoomListControls";
 import RoomList from "../RoomList";
-
+import { useAppSelector, useAppDispatch } from "@/redux/hooks";
 const BookingPageSearch = ({ setState }: { setState: any }) => {
+  // const data = useAppSelector((s) => s);
+  // console.log("data==", data);
+
   return (
     <div>
       <Box>

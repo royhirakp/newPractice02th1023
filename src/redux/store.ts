@@ -1,6 +1,7 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import bookingReducer from "./slices/BookingSlice";
-
+import Rooms from "@/redux/slices/MockData";
+import Filterslice from "@/redux/slices/FilterSlice";
 // persist
 // import storage from "redux-persist/lib/storage";
 import createWebStorage from "redux-persist/lib/storage/createWebStorage";
@@ -42,6 +43,8 @@ const persistConfig = {
 
 const reducer = combineReducers({
   Booking: bookingReducer,
+  roomArray: Rooms,
+  Filterslice: Filterslice,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducer);
@@ -54,7 +57,18 @@ export const store = configureStore({
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
+  // reducer: {
+  //   test: bookingReducer,
+  //   testTwo: bookingReducer,
+  // },
 });
 
-export type RootState = ReturnType<typeof reducer>;
+// export type RootState = ReturnType<typeof reducer>;
+
+// export type AppDispatch = typeof store.dispatch;
+
+// LINES FORM REDUX-TOOLKIT WEBSITE
+// Infer the `RootState` and `AppDispatch` types from the store itself
+export type RootState = ReturnType<typeof store.getState>;
+// // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch;

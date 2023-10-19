@@ -4,7 +4,18 @@ import { LocalizationProvider } from "@mui/x-date-pickers-pro";
 import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
 import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
 import { Box, Stack, Typography } from "@mui/material";
-const DateRangePickercpmponent = () => {
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { addFilterQuery } from "@/redux/slices/FilterSlice";
+
+const DateRangePickercpmponent = ({
+  formData,
+  handleInputChange,
+}: {
+  formData: any;
+  handleInputChange: any;
+}) => {
+  const dispatch = useAppDispatch();
+  const data = useAppSelector((s) => s.Filterslice);
   return (
     <div style={{ padding: "3%" }}>
       <Stack direction="row" textAlign="center" gap={6}>
@@ -16,9 +27,20 @@ const DateRangePickercpmponent = () => {
           <DemoContainer components={["DateRangePicker"]}>
             <DateRangePicker
               localeText={{ start: "", end: "" }}
+              onChange={(e, i) => {
+                handleInputChange(e);
+                const [startDate, endDate]: [startDate: any, endDate: any] = e;
+                // console.log(startDate?.$d, endDate?.$d);
+                let dateRange = startDate?.$d + "Dividerr" + endDate?.$d;
+                dispatch(
+                  addFilterQuery({
+                    type: "date",
+                    value: dateRange,
+                  })
+                );
+              }}
               sx={{
                 ".MuiInputBase-input": {
-                  // width: "5px",
                   padding: "5%",
                 },
               }}

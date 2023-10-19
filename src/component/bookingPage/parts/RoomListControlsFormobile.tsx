@@ -55,34 +55,6 @@ const RoomListControlsFormobile = ({ handleClose }: propsType) => {
         <Stack direction="column" p={2}>
           <Button variant="contained">Apply</Button>
         </Stack>
-        {/* <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-          <Typography color="primary" variant="subtitle1">
-            Booking Details
-          </Typography>
-          <IconButton onClick={handleClose} color="error">
-            <CloseIcon color="error" />
-          </IconButton>
-        </Box>
-        <Box pt={0}>
-          <label htmlFor="dates">
-            <Typography variant="body1" fontWeight={700}>
-              Date
-            </Typography>
-          </label>
-          <DateRangePickercpmponent />
-        </Box>
-        <Box pt={2}>
-          <RangeSlider maxV={30} minV={10} />
-        </Box>
-        <Box>
-          <Typography variant="body1" fontWeight={700}>
-            Services
-          </Typography>
-          <IncludeServicesCheckBox />
-        </Box>{" "}
-        <Stack direction="column" p={2}>
-          <Button variant="contained">Apply</Button>
-        </Stack> */}
       </Stack>
     </Box>
   );

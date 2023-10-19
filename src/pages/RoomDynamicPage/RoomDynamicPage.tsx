@@ -1,14 +1,6 @@
 "use client";
-import React from "react";
-import {
-  Box,
-  Typography,
-  Stack,
-  Paper,
-  IconButton,
-  Grid,
-  Button,
-} from "@mui/material";
+import React, { useEffect } from "react";
+import { Box, Stack } from "@mui/material";
 import MainContainer from "@/component/container/MainContainer";
 import RoomComtaintHearderAndPrice from "@/component/RoomDynamicPage/RoomComtaintHearderAndPrice";
 import ImageConatiner from "@/component/RoomDynamicPage/ImageConatiner";
@@ -23,15 +15,37 @@ import RoomLocationInGoogleMap from "@/component/RoomDynamicPage/RoomLocationInG
 import SimelarRoomsList from "@/component/RoomDynamicPage/SimelarRoomsList";
 import CheckAbilibility from "@/component/RoomDynamicPage/CheckAbilibility";
 import AddPhoto from "@/component/RoomDynamicPage/AddPhoto";
+import { setRoomDataForSinglePage } from "@/redux/slices/MockData";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 const RoomDynamicPage = ({ id }: { id: any }) => {
+  const dispatch = useAppDispatch();
+  const itemData = useAppSelector((s) => s.roomArray.roomDataForRoomRoute);
+  // console.log("item dataaaa", itemData);
+  const {
+    abalableServices,
+    abilibiity,
+    aditionalServices,
+    comments,
+    images,
+    maxGuest,
+    pricePerNight,
+    title,
+  } = itemData;
+
+  useEffect(() => {
+    dispatch(setRoomDataForSinglePage({ id }));
+  }, [id]);
   return (
     <Box>
-      <RoomComtaintHearderAndPrice />
+      <RoomComtaintHearderAndPrice
+        title={title}
+        pricePerNight={pricePerNight}
+      />
       <MainContainer style={{}}>
         <Stack direction="row" gap={1}>
           <Stack direction="column" flex={5} width="70%">
             <Box sx={{ display: "flex", justifyContent: "center" }}>
-              <ImageConatiner />
+              <ImageConatiner images={images} />
             </Box>
             <Box sx={{ margin: "1.3%" }}>
               <RoomInfoB />
@@ -46,7 +60,7 @@ const RoomDynamicPage = ({ id }: { id: any }) => {
               <AditionalRoomService />
             </Box>
             <Box>
-              <RoomReviews />
+              <RoomReviews comments={comments} />
             </Box>
             <Box>
               <RoomLocationInGoogleMap />
