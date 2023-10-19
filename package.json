@@ -35,6 +35,8 @@
     "tw-elements": "^1.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.23.2",
+    "@babel/preset-env": "^7.23.2",
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",

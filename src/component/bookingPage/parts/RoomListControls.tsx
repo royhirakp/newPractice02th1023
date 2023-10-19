@@ -3,9 +3,9 @@ import React from "react";
 import { Box, Paper, Typography, Stack, Button } from "@mui/material";
 import Image from "next/image";
 // import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
-import { LocalizationProvider } from "@mui/x-date-pickers-pro";
-import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
-import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
+// import { LocalizationProvider } from "@mui/x-date-pickers-pro";
+// import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
+// import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
 import { useAppDispatch } from "@/redux/hooks";
 import { filterSearch } from "@/redux/slices/MockData";
 import FormGroup from "@mui/material/FormGroup";
@@ -134,8 +134,8 @@ const RoomListControls = () => {
                 <Typography flex={1}>Check-out</Typography>
               </Stack>
               <Box>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  {/* <DemoContainer components={["DateRangePicker"]}> */}
+                {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DemoContainer components={["DateRangePicker"]}>
                   <DateRangePicker
                     localeText={{ start: "", end: "" }}
                     sx={{
@@ -145,8 +145,8 @@ const RoomListControls = () => {
                     }}
                     onChange={handleInputChange}
                   />
-                  {/* </DemoContainer> */}
-                </LocalizationProvider>
+                  </DemoContainer>
+                </LocalizationProvider> */}
               </Box>
             </div>
           </Box>

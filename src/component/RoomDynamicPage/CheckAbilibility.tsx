@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography, Stack, Paper, Button } from "@mui/material";
-import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+// import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { LocalizationProvider } from "@mui/x-date-pickers-pro";
 import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
 import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
@@ -68,17 +68,17 @@ const CheckAbilibility = () => {
             </Stack>
             <Box>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DemoContainer components={["DateRangePicker"]}>
-                  <DateRangePicker
-                    localeText={{ start: "", end: "" }}
-                    sx={{
-                      ".MuiInputBase-input": {
-                        padding: "5%",
-                      },
-                    }}
-                    onChange={handleInputChange}
-                  />
-                </DemoContainer>
+                {/* <DemoContainer components={["DateRangePicker"]}> */}
+                <DateRangePicker
+                  localeText={{ start: "", end: "" }}
+                  sx={{
+                    ".MuiInputBase-input": {
+                      padding: "5%",
+                    },
+                  }}
+                  onChange={handleInputChange}
+                />
+                {/* </DemoContainer> */}
               </LocalizationProvider>
             </Box>
           </div>
