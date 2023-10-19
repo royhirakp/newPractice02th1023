@@ -19,13 +19,18 @@ import { setRoomDataForSinglePage } from "@/redux/slices/MockData";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 const RoomDynamicPage = ({ id }: { id: any }) => {
   const dispatch = useAppDispatch();
-  const itemData = useAppSelector((s) => s.roomArray.roomDataForRoomRoute);
+  const itemData = useAppSelector((s) => s?.roomArray?.roomDataForRoomRoute);
   // console.log("item dataaaa", itemData);
-  const { comments, images, pricePerNight, title } = itemData;
+  const {
+    comments = [],
+    images = "/PATH",
+    pricePerNight = "100",
+    title = "DEFOULT tITEL",
+  } = itemData || {};
 
   useEffect(() => {
     dispatch(setRoomDataForSinglePage({ id }));
-  }, [id, dispatch]);
+  }, [id]);
   return (
     <Box>
       <RoomComtaintHearderAndPrice
