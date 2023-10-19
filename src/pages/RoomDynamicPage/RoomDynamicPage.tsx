@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Stack } from "@mui/material";
 import MainContainer from "@/component/container/MainContainer";
 import RoomComtaintHearderAndPrice from "@/component/RoomDynamicPage/RoomComtaintHearderAndPrice";
@@ -15,11 +15,24 @@ import RoomLocationInGoogleMap from "@/component/RoomDynamicPage/RoomLocationInG
 import SimelarRoomsList from "@/component/RoomDynamicPage/SimelarRoomsList";
 import CheckAbilibility from "@/component/RoomDynamicPage/CheckAbilibility";
 import AddPhoto from "@/component/RoomDynamicPage/AddPhoto";
-import { setRoomDataForSinglePage } from "@/redux/slices/MockData";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+// import { setRoomDataForSinglePage } from "@/redux/slices/MockData";
+// import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import data from "@/data/Data";
 const RoomDynamicPage = ({ id }: { id: any }) => {
-  const dispatch = useAppDispatch();
-  const itemData = useAppSelector((s) => s?.roomArray?.roomDataForRoomRoute);
+  let [roomData, setRoomData] = useState<any>({
+    title: "titele loading....",
+    pricePerNight: "pricePerNight loading....",
+    images: [],
+    comments: [],
+  });
+  useEffect(() => {
+    let item: any = data.find((item) => item.id * 1 === id * 1);
+    // console.log("itemmmmmmm====", item);
+    setRoomData(item);
+    // console.log(roomData, "========roomdartatatatat");
+  }, [id]);
+  // const dispatch = useAppDispatch();
+  // const itemData = useAppSelector((s) => s?.roomArray?.roomDataForRoomRoute);
   // console.log("item dataaaa", itemData);
   // const {
   //   comments = [],
@@ -28,20 +41,20 @@ const RoomDynamicPage = ({ id }: { id: any }) => {
   //   title = "DEFOULT tITEL",
   // } = itemData || {};
 
-  useEffect(() => {
-    dispatch(setRoomDataForSinglePage({ id }));
-  }, [id]);
+  // useEffect(() => {
+  //   dispatch(setRoomDataForSinglePage({ id }));
+  // }, [id]);
   return (
     <Box>
       <RoomComtaintHearderAndPrice
-        title={itemData?.title}
-        pricePerNight={itemData?.pricePerNight}
+        title={roomData?.title}
+        pricePerNight={roomData?.pricePerNight}
       />
       <MainContainer style={{}}>
         <Stack direction="row" gap={1}>
           <Stack direction="column" flex={5} width="70%">
             <Box sx={{ display: "flex", justifyContent: "center" }}>
-              <ImageConatiner images={itemData?.images} />
+              <ImageConatiner images={roomData?.images} />
             </Box>
             <Box sx={{ margin: "1.3%" }}>
               <RoomInfoB />
@@ -56,7 +69,7 @@ const RoomDynamicPage = ({ id }: { id: any }) => {
               <AditionalRoomService />
             </Box>
             <Box>
-              <RoomReviews comments={itemData?.comments} />
+              <RoomReviews comments={roomData?.comments} />
             </Box>
             <Box>
               <RoomLocationInGoogleMap />

@@ -34,8 +34,8 @@ interface AppState {
 }
 
 const initialState: AppState = {
-  roomsList: data,
-  filterRoomList: data,
+  roomsList: [],
+  filterRoomList: [],
   paginationData: data.slice(0, ItemPerPage),
   total: 55,
   totalNoOfPage: calculateTotalNoOfPages(data.length),
@@ -49,9 +49,17 @@ const BooksSlice = createSlice({
     setRoomDataForSinglePage: (state, action: PayloadAction<any>) => {
       // console.log("action==", action.payload.id);
       let item: any = data.find((item) => item.id === action.payload.id * 1);
-      console.log(item);
+      // console.log(item);
 
       state.roomDataForRoomRoute = item;
+    },
+    setDpageData: (state, action: PayloadAction<any>) => {
+      // console.log("action==", action.payload.data);
+      state.roomsList = action.payload.data;
+      // let item: any = data.find((item) => item.id === action.payload.id * 1);
+      // console.log(item);
+
+      // state.roomDataForRoomRoute = item;
     },
     pagination: (state, action: PayloadAction<any>) => {
       const startIndex = (action.payload.pageNo - 1) * ItemPerPage;
@@ -62,18 +70,12 @@ const BooksSlice = createSlice({
     },
     filterSearch: (state, action: PayloadAction<any>) => {
       //
-      // console.log(action.payload);
       const { checkedItems, formData } = action.payload;
       // roomsList.
-      // console.log(formData.dates);
       let startDate = formData?.dates[0]?.split("-");
       let endDate = formData?.dates[1]?.split("-");
-
       let startMonthIndex: any = "0";
       let endMonthIndex: any = "0";
-
-      // console.log(startDate, endDate, data[0].abilibiity);
-
       // find the items which have the same months ;
       let filterA = data.filter((item) => {
         for (let i in item.abilibiity) {
@@ -167,6 +169,10 @@ const BooksSlice = createSlice({
   },
 });
 
-export const { pagination, filterSearch, setRoomDataForSinglePage } =
-  BooksSlice.actions;
+export const {
+  pagination,
+  setDpageData,
+  filterSearch,
+  setRoomDataForSinglePage,
+} = BooksSlice.actions;
 export default BooksSlice.reducer;

@@ -1,3 +1,5 @@
+"use client";
+
 import { Box, CssBaseline, Paper } from "@mui/material";
 import React, { ReactNode, useState } from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";

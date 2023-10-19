@@ -7,15 +7,16 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { LocalizationProvider } from "@mui/x-date-pickers-pro";
 import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
 import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
-import { useAppDispatch } from "@/redux/hooks";
+// import { useAppDispatch } from "@/redux/hooks";
 import { filterSearch } from "@/redux/slices/MockData";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Slider from "@mui/material/Slider";
 import { pagination } from "@/redux/slices/MockData";
-const RoomListControls = () => {
-  const dispatch = useAppDispatch();
+import data from "@/data/Data";
+const RoomListControls = ({ setFetchedData }: { setFetchedData: any }) => {
+  // const dispatch = useAppDispatch();
   const [checkedItems, setCheckedItems] = React.useState<{
     [key: string]: boolean;
   }>({
@@ -93,6 +94,83 @@ const RoomListControls = () => {
     // console.log(services);
     // dispatch(addFilterQuery({ type: "services", value: services }));
   };
+  function filteropration() {
+    let startDate = formData?.dates[0]?.split("-");
+    let endDate = formData?.dates[1]?.split("-");
+    let startMonthIndex: any = "0";
+    let endMonthIndex: any = "0";
+
+    // find the items which have the same months ;
+    let filterA = data.filter((item) => {
+      for (let i in item.abilibiity) {
+        if (item.abilibiity[i].monthNmae === startDate[1]) {
+          startMonthIndex = i + "";
+          return true;
+        }
+      }
+    });
+
+    let filterB = filterA.filter((item) => {
+      for (let i in item.abilibiity) {
+        if (item.abilibiity[i].monthNmae === endDate[1]) {
+          endMonthIndex = i + "";
+          return true;
+        }
+      }
+    });
+
+    //filter date
+    // startmonthindex
+    let filterC = filterB.filter((item) => {
+      let array: any = item.abilibiity[startMonthIndex].bookDates;
+      if (!array.includes(startDate[0] * 1)) {
+        return true;
+      }
+    });
+    // end month index
+    let filterD = filterC.filter((item) => {
+      let array: any = item.abilibiity[endMonthIndex].bookDates;
+      if (!array.includes(endDate[0] * 1)) {
+        return true;
+      }
+    });
+    let filterE = filterD.filter((item) => {
+      // console.log(item.abalableServices, checkedItems);
+      let temp = false;
+      for (let i in checkedItems) {
+        const key = i as
+          | "smartPhone"
+          | "miniBar"
+          | "Sauna"
+          | "Breakfast"
+          | "Hairdryer"
+          | "Coffeemaker"
+          | "WidesreenTv";
+        // console.log(key, checkedItems[key], item.abalableServices[key]);
+
+        if (checkedItems[key]) {
+          if (item.abalableServices[key]) {
+            temp = true;
+          } else {
+            temp = false;
+            break;
+          }
+        }
+      }
+      return temp;
+    });
+    // filter data by the price range
+    let filterF = filterE.filter((item) => {
+      const pricePerNight = parseFloat(item.pricePerNight);
+      return (
+        !isNaN(pricePerNight) && // Check if the conversion was successful
+        pricePerNight > formData.priceRange[0] &&
+        pricePerNight < formData.priceRange[1]
+      );
+    });
+    console.log("filterF=======", filterF);
+    setFetchedData(filterF);
+  }
   return (
     <Box
       sx={{
@@ -272,9 +350,10 @@ const RoomListControls = () => {
               variant="contained"
               onClick={() => {
                 // console.log(formData);
+                filteropration();
                 // console.log(checkedItems);
-                dispatch(filterSearch({ formData, checkedItems }));
-                dispatch(pagination({ pageNo: 1 }));
+                // dispatch(filterSearch({ formData, checkedItems }));
+                // dispatch(pagination({ pageNo: 1 }));
               }}
             >
               Apply
@@ -293,6 +372,8 @@ const RoomListControls = () => {
       </Box>
     </Box>
   );
+
+  // do the filter opration, function for fetching the data
 };
 
 export default RoomListControls;
