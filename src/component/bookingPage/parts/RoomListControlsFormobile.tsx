@@ -39,7 +39,10 @@ const RoomListControlsFormobile = ({ handleClose }: propsType) => {
               Date
             </Typography>
           </label>
-          <DateRangePickercpmponent />
+          <DateRangePickercpmponent
+            formData={{}}
+            handleInputChange={() => {}}
+          />
         </Stack>
         <Stack pt={2}>
           <RangeSlider maxV={30} minV={10} />
