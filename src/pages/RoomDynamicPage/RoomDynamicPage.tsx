@@ -21,12 +21,12 @@ const RoomDynamicPage = ({ id }: { id: any }) => {
   const dispatch = useAppDispatch();
   const itemData = useAppSelector((s) => s?.roomArray?.roomDataForRoomRoute);
   // console.log("item dataaaa", itemData);
-  const {
-    comments = [],
-    images = "/PATH",
-    pricePerNight = "100",
-    title = "DEFOULT tITEL",
-  } = itemData || {};
+  // const {
+  //   comments = [],
+  //   images = "/PATH",
+  //   pricePerNight = "100",
+  //   title = "DEFOULT tITEL",
+  // } = itemData || {};
 
   useEffect(() => {
     dispatch(setRoomDataForSinglePage({ id }));
@@ -34,14 +34,14 @@ const RoomDynamicPage = ({ id }: { id: any }) => {
   return (
     <Box>
       <RoomComtaintHearderAndPrice
-        title={title}
-        pricePerNight={pricePerNight}
+        title={itemData?.title}
+        pricePerNight={itemData?.pricePerNight}
       />
       <MainContainer style={{}}>
         <Stack direction="row" gap={1}>
           <Stack direction="column" flex={5} width="70%">
             <Box sx={{ display: "flex", justifyContent: "center" }}>
-              <ImageConatiner images={images} />
+              <ImageConatiner images={itemData?.images} />
             </Box>
             <Box sx={{ margin: "1.3%" }}>
               <RoomInfoB />
@@ -56,7 +56,7 @@ const RoomDynamicPage = ({ id }: { id: any }) => {
               <AditionalRoomService />
             </Box>
             <Box>
-              <RoomReviews comments={comments} />
+              <RoomReviews comments={itemData?.comments} />
             </Box>
             <Box>
               <RoomLocationInGoogleMap />
