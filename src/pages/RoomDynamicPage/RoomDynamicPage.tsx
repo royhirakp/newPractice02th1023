@@ -21,20 +21,11 @@ const RoomDynamicPage = ({ id }: { id: any }) => {
   const dispatch = useAppDispatch();
   const itemData = useAppSelector((s) => s.roomArray.roomDataForRoomRoute);
   // console.log("item dataaaa", itemData);
-  const {
-    abalableServices,
-    abilibiity,
-    aditionalServices,
-    comments,
-    images,
-    maxGuest,
-    pricePerNight,
-    title,
-  } = itemData;
+  const { comments, images, pricePerNight, title } = itemData;
 
   useEffect(() => {
     dispatch(setRoomDataForSinglePage({ id }));
-  }, [id]);
+  }, [id, dispatch]);
   return (
     <Box>
       <RoomComtaintHearderAndPrice

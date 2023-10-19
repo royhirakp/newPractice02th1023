@@ -1,14 +1,12 @@
 import React from "react";
 
-import RangeSlider from "@/muiCoustomComponent/RangeSlider";
 import { Box, Paper, Typography, Stack, Button } from "@mui/material";
-import IncludeServicesCheckBox from "./IncludeServicesCheckBox";
 import Image from "next/image";
-import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+// import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { LocalizationProvider } from "@mui/x-date-pickers-pro";
 import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
 import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { useAppDispatch } from "@/redux/hooks";
 import { filterSearch } from "@/redux/slices/MockData";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -17,7 +15,6 @@ import Slider from "@mui/material/Slider";
 import { pagination } from "@/redux/slices/MockData";
 const RoomListControls = () => {
   const dispatch = useAppDispatch();
-  const data = useAppSelector((s) => s.roomArray);
   const [checkedItems, setCheckedItems] = React.useState<{
     [key: string]: boolean;
   }>({
@@ -123,6 +120,7 @@ const RoomListControls = () => {
           <Typography color="primary" variant="subtitle1">
             Booking Details
           </Typography>
+          {/* form dtart */}
           <Box pt={0}>
             <label htmlFor="dates">
               <Typography variant="body1" fontWeight={700}>
@@ -137,17 +135,17 @@ const RoomListControls = () => {
               </Stack>
               <Box>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DemoContainer components={["DateRangePicker"]}>
-                    <DateRangePicker
-                      localeText={{ start: "", end: "" }}
-                      sx={{
-                        ".MuiInputBase-input": {
-                          padding: "5%",
-                        },
-                      }}
-                      onChange={handleInputChange}
-                    />
-                  </DemoContainer>
+                  {/* <DemoContainer components={["DateRangePicker"]}> */}
+                  <DateRangePicker
+                    localeText={{ start: "", end: "" }}
+                    sx={{
+                      ".MuiInputBase-input": {
+                        padding: "5%",
+                      },
+                    }}
+                    onChange={handleInputChange}
+                  />
+                  {/* </DemoContainer> */}
                 </LocalizationProvider>
               </Box>
             </div>
@@ -267,6 +265,7 @@ const RoomListControls = () => {
               </FormGroup>
             </div>
           </Box>{" "}
+          {/* from enddddd */}
           <Stack direction="column" p={2}>
             <Button
               variant="contained"
@@ -274,7 +273,6 @@ const RoomListControls = () => {
                 // console.log(formData);
                 // console.log(checkedItems);
                 dispatch(filterSearch({ formData, checkedItems }));
-                console.log(data);
                 dispatch(pagination({ pageNo: 1 }));
               }}
             >

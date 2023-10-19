@@ -8,9 +8,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { useAppSelector } from "@/redux/hooks";
 const CheckAbilibility = () => {
-  const data = useAppSelector((s) => s.roomArray.roomDataForRoomRoute);
   // date input
   const [formData, setFormData] = React.useState<{
     noOfGuest: string;
@@ -53,7 +51,6 @@ const CheckAbilibility = () => {
 
   const handleCheckAvailability = () => {
     console.log("Form Data:", formData);
-    console.log("data===", data);
 
     // console.log('Selected Age:', age);
   };

@@ -2,7 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Slider from "@mui/material/Slider";
 import { Stack, Typography } from "@mui/material";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { useAppDispatch } from "@/redux/hooks";
 import { addFilterQuery } from "@/redux/slices/FilterSlice";
 function valuetext(value: number) {
   return `$${value}`;
@@ -15,7 +15,6 @@ export default function RangeSlider({ minV, maxV }: componentProps) {
   const [value, setValue] = React.useState<number[]>([minV, maxV]);
 
   const dispatch = useAppDispatch();
-  const data = useAppSelector((s) => s.Filterslice);
 
   const handleChange = (event: Event, newValue: number | number[]) => {
     setValue(newValue as number[]);

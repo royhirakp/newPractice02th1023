@@ -4,18 +4,16 @@ import { LocalizationProvider } from "@mui/x-date-pickers-pro";
 import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
 import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
 import { Box, Stack, Typography } from "@mui/material";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { useAppDispatch } from "@/redux/hooks";
 import { addFilterQuery } from "@/redux/slices/FilterSlice";
 
 const DateRangePickercpmponent = ({
-  formData,
   handleInputChange,
 }: {
   formData: any;
   handleInputChange: any;
 }) => {
   const dispatch = useAppDispatch();
-  const data = useAppSelector((s) => s.Filterslice);
   return (
     <div style={{ padding: "3%" }}>
       <Stack direction="row" textAlign="center" gap={6}>

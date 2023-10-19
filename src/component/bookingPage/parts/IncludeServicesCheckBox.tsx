@@ -2,12 +2,11 @@ import * as React from "react";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { useAppDispatch } from "@/redux/hooks";
 import { addFilterQuery } from "@/redux/slices/FilterSlice";
 
 const IncludeServicesCheckBox = () => {
   const dispatch = useAppDispatch();
-  // const data = useAppSelector((s) => s.Filterslice);
   const [checkedItems, setCheckedItems] = React.useState<{
     [key: string]: boolean;
   }>({

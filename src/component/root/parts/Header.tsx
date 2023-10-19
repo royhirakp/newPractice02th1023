@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import MainContainer from "@/component/container/MainContainer";
 import { Box, Stack, Typography, Button } from "@mui/material";
 import Image from "next/image";
@@ -53,6 +53,7 @@ const LogoAndMenu = () => {
 };
 
 const ProfileAndLogout = () => {
+  let [loginState, setLoginstate] = useState(false);
   return (
     <>
       <Stack direction="row" spacing={2}>
