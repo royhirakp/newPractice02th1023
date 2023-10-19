@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import ProsidToCheckout from "./bookiingIndormationPageParts/ProsidToCheckout";
 import { Button, Box, Stack, Typography, Paper } from "@mui/material";

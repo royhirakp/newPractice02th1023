@@ -3,10 +3,10 @@ import React from "react";
 import { store } from "../store";
 import { Provider } from "react-redux";
 
-import { PersistGate } from "redux-persist/integration/react";
-import { persistStore } from "redux-persist";
+// import { PersistGate } from "redux-persist/integration/react";
+// import { persistStore } from "redux-persist";
 
-let persistor = persistStore(store);
+// let persistor = persistStore(store);
 
 const StoreProvidor: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -14,9 +14,9 @@ const StoreProvidor: React.FC<{ children: React.ReactNode }> = ({
   // let persistor = persistStore(store);
   return (
     <>
-      <PersistGate loading={null} persistor={persistor}>
-        <Provider store={store}>{children}</Provider>
-      </PersistGate>
+      {/* <PersistGate loading={null} persistor={persistor}> */}
+      <Provider store={store}>{children}</Provider>
+      {/* </PersistGate> */}
     </>
   );
 };

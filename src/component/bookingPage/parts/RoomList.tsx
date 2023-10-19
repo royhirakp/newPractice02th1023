@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import RoomCard from "./RoomCard";
 import { Stack } from "@mui/material";

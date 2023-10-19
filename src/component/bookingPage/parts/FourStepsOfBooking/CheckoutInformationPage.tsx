@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { Box, Button, Stack, Typography, TextField } from "@mui/material";
 import { TextareaAutosize } from "@mui/base/TextareaAutosize";

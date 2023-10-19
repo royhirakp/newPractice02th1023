@@ -1,11 +1,12 @@
+"use client";
 import React from "react";
 
 import { Box, Paper, Typography, Stack, Button } from "@mui/material";
 import Image from "next/image";
-// import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
-// import { LocalizationProvider } from "@mui/x-date-pickers-pro";
-// import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
-// import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
+import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
+import { LocalizationProvider } from "@mui/x-date-pickers-pro";
+import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
+import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
 import { useAppDispatch } from "@/redux/hooks";
 import { filterSearch } from "@/redux/slices/MockData";
 import FormGroup from "@mui/material/FormGroup";
@@ -134,19 +135,19 @@ const RoomListControls = () => {
                 <Typography flex={1}>Check-out</Typography>
               </Stack>
               <Box>
-                {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DemoContainer components={["DateRangePicker"]}>
-                  <DateRangePicker
-                    localeText={{ start: "", end: "" }}
-                    sx={{
-                      ".MuiInputBase-input": {
-                        padding: "5%",
-                      },
-                    }}
-                    onChange={handleInputChange}
-                  />
+                    <DateRangePicker
+                      localeText={{ start: "", end: "" }}
+                      sx={{
+                        ".MuiInputBase-input": {
+                          padding: "5%",
+                        },
+                      }}
+                      onChange={handleInputChange}
+                    />
                   </DemoContainer>
-                </LocalizationProvider> */}
+                </LocalizationProvider>
               </Box>
             </div>
           </Box>
