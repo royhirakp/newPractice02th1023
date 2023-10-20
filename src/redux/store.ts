@@ -4,64 +4,64 @@ import Rooms from "@/redux/slices/MockData";
 import Filterslice from "@/redux/slices/FilterSlice";
 // persist
 // import storage from "redux-persist/lib/storage";
-// import createWebStorage from "redux-persist/lib/storage/createWebStorage";
+import createWebStorage from "redux-persist/lib/storage/createWebStorage";
 
-// const createNoopStorage = () => {
-//   return {
-//     getItem(_key: any) {
-//       return Promise.resolve(null);
-//     },
-//     setItem(_key: any, value: any) {
-//       return Promise.resolve(value);
-//     },
-//     removeItem(_key: any) {
-//       return Promise.resolve();
-//     },
-//   };
-// };
+const createNoopStorage = () => {
+  return {
+    getItem(_key: any) {
+      return Promise.resolve(null);
+    },
+    setItem(_key: any, value: any) {
+      return Promise.resolve(value);
+    },
+    removeItem(_key: any) {
+      return Promise.resolve();
+    },
+  };
+};
 
-// const storage =
-//   typeof window !== "undefined"
-//     ? createWebStorage("local")
-//     : createNoopStorage();
+const storage =
+  typeof window !== "undefined"
+    ? createWebStorage("local")
+    : createNoopStorage();
 
-// import {
-//   persistReducer,
-//   FLUSH,
-//   REHYDRATE,
-//   PAUSE,
-//   PERSIST,
-//   PURGE,
-//   REGISTER,
-// } from "redux-persist";
+import {
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
 
-// const persistConfig = {
-//   key: "root",
-//   version: 1,
-//   storage,
-// };
+const persistConfig = {
+  key: "root",
+  version: 1,
+  storage,
+};
 
-// const reducer = combineReducers({
-//   Booking: bookingReducer,
-//   roomArray: Rooms,
-//   Filterslice: Filterslice,
-// });
+const reducer = combineReducers({
+  Booking: bookingReducer,
+  roomArray: Rooms,
+  Filterslice: Filterslice,
+});
 
-// const persistedReducer = persistReducer(persistConfig, reducer);
+const persistedReducer = persistReducer(persistConfig, reducer);
 
 export const store = configureStore({
-  // reducer: persistedReducer,
-  // middleware: (getDefaultMiddleware) =>
-  //   getDefaultMiddleware({
-  //     serializableCheck: {
-  //       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-  //     },
-  //   }),
-  reducer: {
-    Booking: bookingReducer,
-    roomArray: Rooms,
-    Filterslice: Filterslice,
-  },
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+  // reducer: {
+  //   Booking: bookingReducer,
+  //   roomArray: Rooms,
+  //   Filterslice: Filterslice,
+  // },
 });
 
 // export type RootState = ReturnType<typeof reducer>;

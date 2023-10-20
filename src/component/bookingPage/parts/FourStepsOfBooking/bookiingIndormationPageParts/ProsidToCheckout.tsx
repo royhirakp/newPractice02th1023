@@ -11,7 +11,7 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 
 export default function ProsidToCheckout({ handelNext }: { handelNext: any }) {
   const checkoutInfo = useAppSelector((S) => S.Booking);
-  console.log(checkoutInfo, "=====================kkkk");
+  // console.log(checkoutInfo, "=====================kkkk");
   // console.log("checkkkkboocccc", );
   return (
     <Card sx={{ maxWidth: 345 }}>

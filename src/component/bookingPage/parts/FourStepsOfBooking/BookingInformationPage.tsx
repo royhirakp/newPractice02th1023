@@ -24,7 +24,6 @@ const BookingInformationPage = ({
     <div>
       <Stack
         sx={{
-          border: "1px solid",
           justifyContent: "center",
           display: {
             xs: "flex",
@@ -34,7 +33,6 @@ const BookingInformationPage = ({
       >
         <Box
           sx={{
-            border: "1px solid",
             display: "inline-block",
             maxWidth: "40%",
             minWidth: "250px",
@@ -76,6 +74,18 @@ export default BookingInformationPage;
 
 const AdditionServiceComponent = () => {
   const dispatch = useAppDispatch();
+  const aditionalService = useAppSelector((s) => s.Booking.additionalservices);
+  // console.log("additional services : ", aditionalService);
+
+  //   airportPickUp
+  // :
+  // true
+  // message
+  // :
+  // true
+  // tour
+  // :
+  // false
   return (
     <Stack gap={1} sx={{}}>
       <Typography variant="subtitle1">Aditional services</Typography>
@@ -92,16 +102,19 @@ const AdditionServiceComponent = () => {
             label: "Massage & Spa",
             PriceInfo: "    $65 per Person",
             totalPrice: "$65",
+            value: aditionalService.message,
           },
           {
             label: "AirPort Pickup",
             PriceInfo: " $100 per car",
             totalPrice: "$100",
+            value: aditionalService.airportPickUp,
           },
           {
             label: "SigtheeingTour",
             PriceInfo: "$165 per Person",
             totalPrice: "$165",
+            value: aditionalService.tour,
           },
         ].map((item, i) => {
           return (
@@ -119,6 +132,7 @@ const AdditionServiceComponent = () => {
                 <FormControlLabel
                   control={
                     <Checkbox
+                      checked={item.value}
                       onChange={(e, i) => {
                         dispatch(
                           addAditionalService({ sevice: item.label, state: i })
@@ -190,11 +204,14 @@ const BillingDetails = () => {
 
 const SpicalRequest = () => {
   const dispatch = useAppDispatch();
+  const spicalRequest = useAppSelector((s) => s.Booking.spicalRequest);
+
   return (
     <Stack pt={3}>
       <Typography variant="subtitle1">Spical Request</Typography>
       <Stack height="50%" sx={{ padding: "1% 4%" }}>
         <TextareaAutosize
+          value={spicalRequest}
           maxRows={10}
           minRows={9}
           onChange={(e) => {
@@ -208,12 +225,15 @@ const SpicalRequest = () => {
 
 const TramsAndCondition = () => {
   const dispatch = useAppDispatch();
+
+  // console.log(spicalRequest, "spical requestttttt");
   return (
     <Stack direction="row">
       <FormGroup>
         <FormControlLabel
           control={
             <Checkbox
+              // value={}
               onChange={(e, i) => {
                 dispatch(setIaGREEcHECKbOX({ stateofThecheckbox: i }));
               }}
