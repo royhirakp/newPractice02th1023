@@ -8,7 +8,7 @@ import LocalBarIcon from "@mui/icons-material/LocalBar";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
 import { useRouter } from "next/navigation";
 import { useAppDispatch } from "@/redux/hooks";
-import { handelNextsFromState } from "@/redux/slices/BookingSlice";
+import { handelNextsFromState, addRoomData } from "@/redux/slices/BookingSlice";
 const responsiveIconSize = {
   fontSize: {
     xs: "small",
@@ -20,6 +20,7 @@ const RoomCard = ({ setState, item }: { setState: any; item: any }) => {
   const router = useRouter();
   const { title, abalableServices, describtion, pricePerNight, imageurl } =
     item;
+
   return (
     <Paper>
       <Stack direction="row">
@@ -70,7 +71,11 @@ const RoomCard = ({ setState, item }: { setState: any; item: any }) => {
             },
           }}
         >
-          <BookingAction setState={setState} pricePerNight={pricePerNight} />
+          <BookingAction
+            setState={setState}
+            pricePerNight={pricePerNight}
+            item={item}
+          />
         </Box>
       </Stack>
     </Paper>
@@ -175,9 +180,11 @@ const RoomdetailsContainer = ({
 const BookingAction = ({
   setState,
   pricePerNight,
+  item,
 }: {
   setState: any;
   pricePerNight: any;
+  item: any;
 }) => {
   const dispatch = useAppDispatch();
   return (
@@ -208,8 +215,22 @@ const BookingAction = ({
             },
           }}
           onClick={() => {
-            setState(1);
+            const userInfo = {
+              Name: "Jhon",
+              Surname: "Doe",
+              Email: "Jhon@mail.com",
+              Phone: "+91000000000",
+              Address: "Jhon",
+              City: "KOLKATA",
+              Country: "India",
+              Pin: "733154",
+              Room: "Single",
+              CheckIn: "09/555",
+              CheckOut: "16/521/2",
+              Guest: "3 Adults",
+            };
             dispatch(handelNextsFromState({}));
+            dispatch(addRoomData({ item, userInfo }));
           }}
         >
           Select Booking

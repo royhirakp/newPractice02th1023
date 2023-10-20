@@ -131,8 +131,9 @@ const AdditionServiceComponent = () => {
     </Stack>
   );
 };
-
+import { useAppSelector } from "@/redux/hooks";
 const BillingDetails = () => {
+  const userInfoooo = useAppSelector((s) => s?.Booking?.userInfo);
   return (
     <Stack pt={3}>
       <Typography variant="subtitle1">Billing Details</Typography>
@@ -144,11 +145,14 @@ const BillingDetails = () => {
         }}
       >
         {[
-          { lable: "Name", data: "Jhon" },
-          { lable: "Surname", data: "Doe" },
-          { lable: "Email", data: "Jhon@mail.com" },
-          { lable: "Phone", data: "+9100000000000" },
-          { lable: "Address", data: "Jhon" },
+          { lable: "Name", data: userInfoooo?.Name },
+          { lable: "Surname", data: userInfoooo?.Surname },
+          { lable: "Email", data: userInfoooo?.Email },
+          { lable: "Phone", data: userInfoooo?.Phone },
+          {
+            lable: "Address",
+            data: `${userInfoooo?.City}- ${userInfoooo?.Country}`,
+          },
         ].map((item, i) => {
           return (
             <Typography

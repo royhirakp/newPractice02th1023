@@ -26,11 +26,6 @@ const bookingSlice = createSlice({
   name: "booking",
   initialState: initialState,
   reducers: {
-    addBoking: (state, action) => {
-      console.log("state==", state);
-      console.log("action==", action);
-    },
-
     handelPreviousFromState: (state, action) => {
       if (state.bookingStage <= 0) return;
       state.bookingStage = state.bookingStage - 1;
@@ -51,13 +46,17 @@ const bookingSlice = createSlice({
 
       // refresh all the data
     },
+    addRoomData: (state, action) => {
+      state.room = action.payload.item;
+      state.userInfo = action.payload.userInfo;
+    },
   },
 });
 
 export const {
-  addBoking,
   handelPreviousFromState,
   handelNextsFromState,
   refreshPageOrMakeStageZero,
+  addRoomData,
 } = bookingSlice.actions;
 export default bookingSlice.reducer;
