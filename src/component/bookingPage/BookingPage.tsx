@@ -14,7 +14,7 @@ import {
 import { useDispatch } from "react-redux";
 const BookingPage = () => {
   const [state, setState] = useState(0);
-  const formStage = useAppSelector((s) => s.Booking.bookingStage);
+
   const dispatch = useDispatch();
 
   function handelPrevious() {

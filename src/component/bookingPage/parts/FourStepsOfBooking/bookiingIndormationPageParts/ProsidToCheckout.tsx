@@ -7,10 +7,12 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Divider } from "@mui/material";
 
-import { useAppDispatch } from "@/redux/hooks";
-import { handelNextsFromState } from "@/redux/slices/BookingSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+
 export default function ProsidToCheckout({ handelNext }: { handelNext: any }) {
-  const dispstch = useAppDispatch();
+  const checkoutInfo = useAppSelector((S) => S.Booking);
+  console.log(checkoutInfo, "=====================kkkk");
+  // console.log("checkkkkboocccc", );
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -63,7 +65,7 @@ export default function ProsidToCheckout({ handelNext }: { handelNext: any }) {
           sx={{ display: "flex", justifyContent: "space-between" }}
         >
           <span>Total</span>
-          <span>$989</span>
+          <span>${checkoutInfo.totalPrice}</span>
         </Typography>
       </CardContent>
       <CardActions>
@@ -73,6 +75,10 @@ export default function ProsidToCheckout({ handelNext }: { handelNext: any }) {
           sx={{ borderRadius: "0" }}
           onClick={() => {
             // dispstch(handelNextsFromState({}))
+            if (!checkoutInfo.IaGREEcHECKbOX) {
+              alert("please tik the check box");
+              return;
+            }
             handelNext();
           }}
         >

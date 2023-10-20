@@ -6,6 +6,11 @@ import CurrencyExchangeIcon from "@mui/icons-material/CurrencyExchange";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
+import {
+  addAditionalService,
+  setPaymentInfo,
+} from "@/redux/slices/BookingSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 const CheckoutInformationPage = ({ handelNext }: { handelNext: any }) => {
   return (
     <div>
@@ -21,28 +26,38 @@ const CheckoutInformationPage = ({ handelNext }: { handelNext: any }) => {
 
 export default CheckoutInformationPage;
 const UserandRoomDetails = () => {
+  const data = useAppSelector((s) => s.Booking.userInfo);
+  const aditionalService = useAppSelector((s) => s.Booking.additionalservices);
+  const total = useAppSelector((s) => s.Booking.totalPrice);
+  console.log("datataaa form checkinfototaltotaltotal ", total);
   return (
     <Box>
       <Typography variant="subtitle1" fontWeight={700} pb={1}>
         Booking Details
       </Typography>
+      <Typography variant="body1" pb={1} color="primary">
+        <span style={{ fontWeight: 700 }}>Aditional Services:</span>{" "}
+        <span>{aditionalService.message ? "Massage & Spa     " : ""}</span>
+        <span>{aditionalService.airportPickUp ? "AirPort Pickup   " : ""}</span>
+        <span>{aditionalService.tour ? "SigtheeingTour" : ""}</span>
+        {/* <span>{`${addAditionalService.message ? "true" : "false"}`}</span> */}
+      </Typography>
       <Stack direction="row" flexWrap="wrap" sx={{ paddingLeft: "10%" }}>
         {[
-          { lable: "Name", data: "Jhon" },
-          { lable: "Surname", data: "Doe" },
-          { lable: "Email", data: "Jhon@mail.com" },
-          { lable: "Phone", data: "+9100000000000" },
-          { lable: "Address", data: "Jhon" },
-          { lable: "City", data: "Jhon" },
-          { lable: "Country", data: "India" },
-          { lable: "Pin", data: "733154" },
-          { lable: "Room", data: "Single" },
+          { lable: "Name", data: data?.Name },
+          { lable: "Surname", data: data?.Surname },
+          { lable: "Email", data: data?.Email },
+          { lable: "Phone", data: data?.Phone },
+          { lable: "Address", data: `${data?.City} - ${data?.Country}` },
+          { lable: "City", data: data?.City },
+          { lable: "Country", data: data?.Country },
+          { lable: "Pin", data: data?.Pin },
+          { lable: "Room", data: data?.Room },
           { lable: "CheckIn", data: "09/555" },
           { lable: "Check Out", data: "16/521/2" },
           { lable: "Guest", data: "3 Adults" },
-          { lable: "Aditional Services ", data: "Airport Pickup" },
-
-          { lable: "Total", data: "$30052" },
+          // { lable: "Aditional Services ", data: "Airport Pickup" },
+          { lable: "Total", data: `$${total}` },
         ].map((item, i) => {
           return (
             <Typography
@@ -209,6 +224,7 @@ const PaymentDetails = ({ handelNext }: { handelNext: any }) => {
 };
 
 const PaypalComponetPayment = ({ handelNext }: { handelNext: any }) => {
+  const dispatch = useAppDispatch();
   return (
     <Box
       sx={{
@@ -239,7 +255,10 @@ const PaypalComponetPayment = ({ handelNext }: { handelNext: any }) => {
             borderRadius: 0,
             ".MuiButton-root": {},
           }}
-          onClick={handelNext}
+          onClick={() => {
+            handelNext();
+            dispatch(setPaymentInfo({ data: "papal" }));
+          }}
         >
           pay
         </Button>
@@ -249,6 +268,7 @@ const PaypalComponetPayment = ({ handelNext }: { handelNext: any }) => {
 };
 
 const CraditCardComponent = ({ handelNext }: { handelNext: any }) => {
+  const dispatch = useAppDispatch();
   return (
     <Stack
       sx={{ padding: "1%", height: "100%" }}
@@ -374,7 +394,10 @@ const CraditCardComponent = ({ handelNext }: { handelNext: any }) => {
               borderRadius: 0,
               ".MuiButton-root": {},
             }}
-            onClick={handelNext}
+            onClick={() => {
+              handelNext();
+              dispatch(setPaymentInfo({ data: "CraditCard" }));
+            }}
           >
             pay
           </Button>
@@ -385,6 +408,8 @@ const CraditCardComponent = ({ handelNext }: { handelNext: any }) => {
 };
 
 const BankTransferComponant = ({ handelNext }: { handelNext: any }) => {
+  const dispatch = useAppDispatch();
+
   return (
     <Stack
       sx={{ padding: "10%", height: "100%" }}
@@ -444,7 +469,10 @@ const BankTransferComponant = ({ handelNext }: { handelNext: any }) => {
               borderRadius: 0,
               ".MuiButton-root": {},
             }}
-            onClick={handelNext}
+            onClick={() => {
+              dispatch(setPaymentInfo({ data: "Bank Transfer" }));
+              handelNext();
+            }}
           >
             pay
           </Button>
@@ -455,6 +483,8 @@ const BankTransferComponant = ({ handelNext }: { handelNext: any }) => {
 };
 
 const PayOnArivalComponent = ({ handelNext }: { handelNext: any }) => {
+  const dispatch = useAppDispatch();
+
   return (
     <Stack
       direction="column"
@@ -477,7 +507,10 @@ const PayOnArivalComponent = ({ handelNext }: { handelNext: any }) => {
             borderRadius: 0,
             ".MuiButton-root": {},
           }}
-          onClick={handelNext}
+          onClick={() => {
+            dispatch(setPaymentInfo({ data: "PayOn Arival" }));
+            handelNext();
+          }}
         >
           Book
         </Button>

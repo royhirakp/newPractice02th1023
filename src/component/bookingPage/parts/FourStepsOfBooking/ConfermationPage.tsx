@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import DownloadIcon from "@mui/icons-material/Download";
-import { useAppDispatch } from "@/redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { refreshPageOrMakeStageZero } from "@/redux/slices/BookingSlice";
 
 import { useRouter } from "next/navigation";
@@ -19,6 +19,10 @@ import { useRouter } from "next/navigation";
 const ConfermationPage = () => {
   const dispatch = useAppDispatch();
   const router = useRouter();
+  const data = useAppSelector((s) => s.Booking.userInfo);
+  const total = useAppSelector((s) => s.Booking.totalPrice);
+  const aditionalService = useAppSelector((s) => s.Booking.additionalservices);
+  const paymentMode = useAppSelector((s) => s.Booking.paymentMethod);
   return (
     <div>
       <Box>
@@ -74,20 +78,29 @@ const ConfermationPage = () => {
           </Stack>
         </Stack>
         <Divider />
+        <Typography variant="body1" pb={1} color="primary">
+          <span style={{ fontWeight: 700 }}>Aditional Services:</span>{" "}
+          <span>{aditionalService.message ? "Massage & Spa     " : ""}</span>
+          <span>
+            {aditionalService.airportPickUp ? "AirPort Pickup   " : ""}
+          </span>
+          <span>{aditionalService.tour ? "SigtheeingTour" : ""}</span>
+          {/* <span>{`${addAditionalService.message ? "true" : "false"}`}</span> */}
+        </Typography>
         <Stack direction="row" flexWrap="wrap" pt={2}>
           {[
-            { lable: "Name", data: "Jhon" },
-            { lable: "Surname", data: "Doe" },
-            { lable: "Email", data: "Jhon@mail.com" },
-            { lable: "Phone", data: "+9100000000000" },
-            { lable: "Room", data: "Single" },
+            { lable: "Name", data: data?.Name },
+            { lable: "Surname", data: data?.Surname },
+            { lable: "Email", data: data?.Email },
+            { lable: "Phone", data: data?.Phone },
+
+            { lable: "Room", data: data?.Room },
             { lable: "CheckIn", data: "09/555" },
             { lable: "Check Out", data: "16/521/2" },
             { lable: "Guest", data: "3 Adults" },
-            { lable: "Aditional Services ", data: "Airport Pickup" },
 
-            { lable: "Total", data: "$30052" },
-            { lable: "Paymant Mode", data: "Online" },
+            { lable: "Total", data: `$${total}` },
+            { lable: "Paymant Mode", data: paymentMode },
           ].map((item, i) => {
             return (
               <Typography

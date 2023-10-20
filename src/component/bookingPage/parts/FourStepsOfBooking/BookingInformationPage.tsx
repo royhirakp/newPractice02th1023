@@ -1,11 +1,18 @@
 "use client";
 import React from "react";
 import ProsidToCheckout from "./bookiingIndormationPageParts/ProsidToCheckout";
-import { Button, Box, Stack, Typography, Paper } from "@mui/material";
+import { Box, Stack, Typography, Paper } from "@mui/material";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { TextareaAutosize } from "@mui/base/TextareaAutosize";
+import { useAppSelector, useAppDispatch } from "@/redux/hooks";
+import {
+  addAditionalService,
+  setSpacialRequest,
+  setIaGREEcHECKbOX,
+} from "@/redux/slices/BookingSlice";
+
 const BookingInformationPage = ({
   handelPrevious,
   handelNext,
@@ -68,6 +75,7 @@ const BookingInformationPage = ({
 export default BookingInformationPage;
 
 const AdditionServiceComponent = () => {
+  const dispatch = useAppDispatch();
   return (
     <Stack gap={1} sx={{}}>
       <Typography variant="subtitle1">Aditional services</Typography>
@@ -109,7 +117,16 @@ const AdditionServiceComponent = () => {
             >
               <FormGroup>
                 <FormControlLabel
-                  control={<Checkbox defaultChecked size="small" sx={{}} />}
+                  control={
+                    <Checkbox
+                      onChange={(e, i) => {
+                        dispatch(
+                          addAditionalService({ sevice: item.label, state: i })
+                        );
+                      }}
+                      size="small"
+                    />
+                  }
                   label={item.label}
                 />
               </FormGroup>
@@ -131,7 +148,7 @@ const AdditionServiceComponent = () => {
     </Stack>
   );
 };
-import { useAppSelector } from "@/redux/hooks";
+
 const BillingDetails = () => {
   const userInfoooo = useAppSelector((s) => s?.Booking?.userInfo);
   return (
@@ -172,22 +189,38 @@ const BillingDetails = () => {
 };
 
 const SpicalRequest = () => {
+  const dispatch = useAppDispatch();
   return (
     <Stack pt={3}>
       <Typography variant="subtitle1">Spical Request</Typography>
       <Stack height="50%" sx={{ padding: "1% 4%" }}>
-        <TextareaAutosize maxRows={10} minRows={9} />
+        <TextareaAutosize
+          maxRows={10}
+          minRows={9}
+          onChange={(e) => {
+            dispatch(setSpacialRequest({ data: e.target.value }));
+          }}
+        />
       </Stack>
     </Stack>
   );
 };
 
 const TramsAndCondition = () => {
+  const dispatch = useAppDispatch();
   return (
     <Stack direction="row">
       <FormGroup>
         <FormControlLabel
-          control={<Checkbox defaultChecked size="small" sx={{}} />}
+          control={
+            <Checkbox
+              onChange={(e, i) => {
+                dispatch(setIaGREEcHECKbOX({ stateofThecheckbox: i }));
+              }}
+              size="small"
+              sx={{}}
+            />
+          }
           label=""
         />
       </FormGroup>
