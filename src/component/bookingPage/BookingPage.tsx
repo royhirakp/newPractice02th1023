@@ -6,14 +6,22 @@ import BookingPageSearch from "./parts/FourStepsOfBooking/BookingPageSearch";
 import BookingInformationPage from "./parts/FourStepsOfBooking/BookingInformationPage";
 import CheckoutInformationPage from "./parts/FourStepsOfBooking/CheckoutInformationPage";
 import ConfermationPage from "./parts/FourStepsOfBooking/ConfermationPage";
-
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import {
+  handelNextsFromState,
+  handelPreviousFromState,
+} from "@/redux/slices/BookingSlice";
+import { useDispatch } from "react-redux";
 const BookingPage = () => {
   const [state, setState] = useState(0);
+  const formStage = useAppSelector((s) => s.Booking.bookingStage);
+  const dispatch = useDispatch();
+
   function handelPrevious() {
-    if (state > 0) setState(state - 1);
+    dispatch(handelPreviousFromState({}));
   }
   function handelNext() {
-    if (state < 3) setState(state + 1);
+    dispatch(handelNextsFromState({}));
   }
 
   return (
@@ -26,6 +34,20 @@ const BookingPage = () => {
           },
         }}
       >
+        <button
+          onClick={() => {
+            dispatch(handelPreviousFromState({}));
+          }}
+        >
+          +++
+        </button>
+        <button
+          onClick={() => {
+            dispatch(handelNextsFromState({}));
+          }}
+        >
+          -----
+        </button>
         <Box p={1} sx={{ padding: "1% 0" }}>
           <ProgressBar state={state} />
         </Box>
@@ -59,8 +81,9 @@ const MultiStepForm = ({
   handelPrevious: any;
 }) => {
   let element;
+  const formStage = useAppSelector((s) => s.Booking.bookingStage);
 
-  switch (state) {
+  switch (formStage) {
     case 0:
       element = (
         <>

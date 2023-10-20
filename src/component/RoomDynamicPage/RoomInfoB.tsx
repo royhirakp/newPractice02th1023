@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, Stack, Paper, IconButton } from "@mui/material";
+import { Box, Typography, Stack, IconButton } from "@mui/material";
 
 import PeopleOutlineIcon from "@mui/icons-material/PeopleOutline";
 

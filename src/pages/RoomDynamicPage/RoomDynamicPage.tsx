@@ -4,7 +4,6 @@ import { Box, Stack } from "@mui/material";
 import MainContainer from "@/component/container/MainContainer";
 import RoomComtaintHearderAndPrice from "@/component/RoomDynamicPage/RoomComtaintHearderAndPrice";
 import ImageConatiner from "@/component/RoomDynamicPage/ImageConatiner";
-// import RoomInfoBar from "@/component/RoomDynamicPage/Room";
 import RoomInfoB from "@/component/RoomDynamicPage/RoomInfoB";
 import TextInformationAboutRoom from "@/component/RoomDynamicPage/TextInformationAboutRoom";
 import RoomService from "@/component/RoomDynamicPage/RoomService";
@@ -15,8 +14,6 @@ import RoomLocationInGoogleMap from "@/component/RoomDynamicPage/RoomLocationInG
 import SimelarRoomsList from "@/component/RoomDynamicPage/SimelarRoomsList";
 import CheckAbilibility from "@/component/RoomDynamicPage/CheckAbilibility";
 import AddPhoto from "@/component/RoomDynamicPage/AddPhoto";
-// import { setRoomDataForSinglePage } from "@/redux/slices/MockData";
-// import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import data from "@/data/Data";
 const RoomDynamicPage = ({ id }: { id: any }) => {
   let [roomData, setRoomData] = useState<any>({
@@ -27,23 +24,9 @@ const RoomDynamicPage = ({ id }: { id: any }) => {
   });
   useEffect(() => {
     let item: any = data.find((item) => item.id * 1 === id * 1);
-    // console.log("itemmmmmmm====", item);
     setRoomData(item);
-    // console.log(roomData, "========roomdartatatatat");
   }, [id]);
-  // const dispatch = useAppDispatch();
-  // const itemData = useAppSelector((s) => s?.roomArray?.roomDataForRoomRoute);
-  // console.log("item dataaaa", itemData);
-  // const {
-  //   comments = [],
-  //   images = "/PATH",
-  //   pricePerNight = "100",
-  //   title = "DEFOULT tITEL",
-  // } = itemData || {};
 
-  // useEffect(() => {
-  //   dispatch(setRoomDataForSinglePage({ id }));
-  // }, [id]);
   return (
     <Box>
       <RoomComtaintHearderAndPrice

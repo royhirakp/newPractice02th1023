@@ -2,7 +2,9 @@
 import React from "react";
 import { Box, Stack, Typography } from "@mui/material";
 import MuiLinearProgreson from "@/muiCoustomComponent/MuiLinearProgreson";
+import { useAppSelector } from "@/redux/hooks";
 const ProgressBar = ({ state }: { state: number }) => {
+  const formStage = useAppSelector((s) => s.Booking.bookingStage);
   return (
     <div>
       <Box>
@@ -27,7 +29,7 @@ const ProgressBar = ({ state }: { state: number }) => {
         </Stack>
       </Box>
       <Box sx={{ width: "100%" }}>
-        <MuiLinearProgreson value={33.33 * state} />
+        <MuiLinearProgreson value={33.33 * formStage} />
       </Box>
       <Box
         sx={{

@@ -7,6 +7,8 @@ import PoolIcon from "@mui/icons-material/Pool";
 import LocalBarIcon from "@mui/icons-material/LocalBar";
 import RestaurantIcon from "@mui/icons-material/Restaurant";
 import { useRouter } from "next/navigation";
+import { useAppDispatch } from "@/redux/hooks";
+import { handelNextsFromState } from "@/redux/slices/BookingSlice";
 const responsiveIconSize = {
   fontSize: {
     xs: "small",
@@ -177,6 +179,7 @@ const BookingAction = ({
   setState: any;
   pricePerNight: any;
 }) => {
+  const dispatch = useAppDispatch();
   return (
     <Box
       sx={{
@@ -206,9 +209,10 @@ const BookingAction = ({
           }}
           onClick={() => {
             setState(1);
+            dispatch(handelNextsFromState({}));
           }}
         >
-          select booking
+          Select Booking
         </Button>
       </Stack>
     </Box>

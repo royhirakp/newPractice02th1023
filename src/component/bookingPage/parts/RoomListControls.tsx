@@ -7,13 +7,10 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { LocalizationProvider } from "@mui/x-date-pickers-pro";
 import { AdapterDayjs } from "@mui/x-date-pickers-pro/AdapterDayjs";
 import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
-// import { useAppDispatch } from "@/redux/hooks";
-import { filterSearch } from "@/redux/slices/MockData";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Slider from "@mui/material/Slider";
-import { pagination } from "@/redux/slices/MockData";
 import data from "@/data/Data";
 const RoomListControls = ({ setFetchedData }: { setFetchedData: any }) => {
   // const dispatch = useAppDispatch();
@@ -377,7 +374,3 @@ const RoomListControls = ({ setFetchedData }: { setFetchedData: any }) => {
 };
 
 export default RoomListControls;
-
-const AddImge = () => {
-  return <></>;
-};

@@ -7,7 +7,10 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Divider } from "@mui/material";
 
+import { useAppDispatch } from "@/redux/hooks";
+import { handelNextsFromState } from "@/redux/slices/BookingSlice";
 export default function ProsidToCheckout({ handelNext }: { handelNext: any }) {
+  const dispstch = useAppDispatch();
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -68,7 +71,10 @@ export default function ProsidToCheckout({ handelNext }: { handelNext: any }) {
           fullWidth
           variant="contained"
           sx={{ borderRadius: "0" }}
-          onClick={handelNext}
+          onClick={() => {
+            // dispstch(handelNextsFromState({}))
+            handelNext();
+          }}
         >
           Process to checkout
         </Button>

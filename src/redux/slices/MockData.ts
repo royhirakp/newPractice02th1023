@@ -47,9 +47,7 @@ const BooksSlice = createSlice({
   initialState: initialState,
   reducers: {
     setRoomDataForSinglePage: (state, action: PayloadAction<any>) => {
-      // console.log("action==", action.payload.id);
       let item: any = data.find((item) => item.id === action.payload.id * 1);
-      // console.log(item);
 
       state.roomDataForRoomRoute = item;
     },

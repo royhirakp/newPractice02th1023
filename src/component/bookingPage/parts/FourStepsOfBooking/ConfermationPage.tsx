@@ -11,8 +11,14 @@ import {
 } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import DownloadIcon from "@mui/icons-material/Download";
+import { useAppDispatch } from "@/redux/hooks";
+import { refreshPageOrMakeStageZero } from "@/redux/slices/BookingSlice";
+
+import { useRouter } from "next/navigation";
 
 const ConfermationPage = () => {
+  const dispatch = useAppDispatch();
+  const router = useRouter();
   return (
     <div>
       <Box>
@@ -96,7 +102,16 @@ const ConfermationPage = () => {
           })}
         </Stack>
         <Stack pt={2} pb={2} direction="row">
-          <Button variant="outlined" sx={{ borderRadius: 0 }}>
+          <Button
+            variant="outlined"
+            sx={{ borderRadius: 0 }}
+            onClick={() => {
+              router.push("/webapp");
+              setTimeout(() => {
+                dispatch(refreshPageOrMakeStageZero());
+              }, 1000);
+            }}
+          >
             Return to Home
           </Button>
         </Stack>
