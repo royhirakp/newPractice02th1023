@@ -225,7 +225,7 @@ const SpicalRequest = () => {
 
 const TramsAndCondition = () => {
   const dispatch = useAppDispatch();
-
+  const data = useAppSelector((s) => s.Booking.IaGREEcHECKbOX);
   // console.log(spicalRequest, "spical requestttttt");
   return (
     <Stack direction="row">
@@ -233,7 +233,7 @@ const TramsAndCondition = () => {
         <FormControlLabel
           control={
             <Checkbox
-              // value={}
+              checked={data}
               onChange={(e, i) => {
                 dispatch(setIaGREEcHECKbOX({ stateofThecheckbox: i }));
               }}

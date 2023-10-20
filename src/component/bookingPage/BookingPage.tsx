@@ -34,27 +34,10 @@ const BookingPage = () => {
           },
         }}
       >
-        <button
-          onClick={() => {
-            dispatch(handelPreviousFromState({}));
-          }}
-        >
-          +++
-        </button>
-        <button
-          onClick={() => {
-            dispatch(handelNextsFromState({}));
-          }}
-        >
-          -----
-        </button>
         <Box p={1} sx={{ padding: "1% 0" }}>
           <ProgressBar state={state} />
         </Box>
         <>
-          {/* <Button onClick={handelPrevious}>+++++++</Button>
-          {state}
-          <Button onClick={handelNext}>-----------</Button> */}
           <MultiStepForm
             state={state}
             setState={setState}

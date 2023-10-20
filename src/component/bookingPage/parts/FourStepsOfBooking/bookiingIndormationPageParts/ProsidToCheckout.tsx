@@ -65,7 +65,9 @@ export default function ProsidToCheckout({ handelNext }: { handelNext: any }) {
           sx={{ display: "flex", justifyContent: "space-between" }}
         >
           <span>Total</span>
-          <span>${checkoutInfo.totalPrice}</span>
+          <span style={{ fontWeight: 800, color: "#cb3737" }}>
+            ${checkoutInfo.totalPrice}
+          </span>
         </Typography>
       </CardContent>
       <CardActions>
