@@ -64,8 +64,22 @@ const LoginButtonAndUserProfile = () => {
               "aria-labelledby": "basic-button",
             }}
           >
-            <MenuItem onClick={handleClose}>Profile</MenuItem>
-            <MenuItem onClick={handleClose}>My account</MenuItem>
+            <MenuItem
+              onClick={() => {
+                setAnchorEl(null);
+                router.push("/webapp/profile");
+              }}
+            >
+              Profile
+            </MenuItem>
+            <MenuItem
+              onClick={() => {
+                setAnchorEl(null);
+                router.push("/webapp/account");
+              }}
+            >
+              My account
+            </MenuItem>
             <MenuItem
               onClick={() => {
                 localStorage.removeItem("loginStatus");

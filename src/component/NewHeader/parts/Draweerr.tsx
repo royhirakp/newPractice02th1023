@@ -337,7 +337,7 @@ const LoginPartForMobileDrawer = () => {
             </Link>
 
             <Stack direction="row">
-              <Stack direction="column" sx={{ border: "1px solid" }}>
+              <Stack direction="column" sx={{}}>
                 <Typography variant="subtitle2" color="primary">
                   Hirak Roy
                 </Typography>
