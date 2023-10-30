@@ -34,7 +34,7 @@ const RoomDynamicPage = ({ id }: { id: any }) => {
         pricePerNight={roomData?.pricePerNight}
       />
       <MainContainer style={{}}>
-        <Stack direction="row" gap={1}>
+        <Stack direction="row" gap={1} maxWidth="1500px" margin="auto">
           <Stack direction="column" flex={5} width="70%">
             <Box sx={{ display: "flex", justifyContent: "center" }}>
               <ImageConatiner images={roomData?.images} />

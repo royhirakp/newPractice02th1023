@@ -18,6 +18,8 @@ const ContactPage = () => {
               xs: "column",
               sm: "row",
             },
+            maxWidth: "1500px",
+            margin: "auto",
             // height: { xs: "400px", sm: "200px" },
           }}
         >

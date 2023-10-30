@@ -6,14 +6,16 @@ import React from "react";
 const StartyourJourneycomponent = () => {
   return (
     <div>
-      <MainContainer style={{}}>
+      <MainContainer style={{ marginTop: "30px" }}>
         <Stack
+          mt={5}
           sx={{
             backgroundColor: "#999696",
             borderRadius: "7px",
-            marginTop: "30px",
 
             padding: "20px 20px 10px 20px",
+            maxWidth: "1500px",
+            margin: "auto",
           }}
           justifyContent="center"
           alignItems="center"

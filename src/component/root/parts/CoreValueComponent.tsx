@@ -13,8 +13,15 @@ import {
 import "react-accessible-accordion/dist/fancy-example.css";
 const CoreValueComponent = () => {
   return (
-    <Box sx={{ bgcolor: "secondary.dark", padding: "15px 0" }}>
-      <MainContainer style={{}}>
+    <MainContainer style={{}}>
+      <Box
+        sx={{
+          bgcolor: "secondary.dark",
+          padding: "15px 0",
+          maxWidth: "1500px",
+          margin: "auto",
+        }}
+      >
         <Stack
           sx={{
             flexDirection: {
@@ -57,8 +64,8 @@ const CoreValueComponent = () => {
             <AcordionComponent />
           </Box>
         </Stack>
-      </MainContainer>
-    </Box>
+      </Box>
+    </MainContainer>
   );
 };
 

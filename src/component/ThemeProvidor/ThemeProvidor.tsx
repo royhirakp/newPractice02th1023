@@ -37,10 +37,7 @@ const ThemeProvidor: React.FC<ContainerProps> = ({ children }) => {
         secondary: !darkMode ? "#5eabb2d1" : "#FFFF",
         // disabled: "#ffff",
       },
-      // error: {
-      //   main: darkMode ? "#0b293a" : "#b2d9ef",
-      //   light: darkMode ? "#0b293a" : "#b2d9ef",
-      // },
+
       background: {
         default: darkMode ? "#0b293a" : "#e6f0fa",
         // #e6f0fa
@@ -90,6 +87,16 @@ const ThemeProvidor: React.FC<ContainerProps> = ({ children }) => {
     },
 
     components: {
+      MuiButtonBase: {
+        defaultProps: {
+          disableRipple: true,
+        },
+      },
+      MuiButtonGroup: {
+        defaultProps: {
+          disableRipple: true,
+        },
+      },
       MuiSvgIcon: {
         styleOverrides: {
           root: {

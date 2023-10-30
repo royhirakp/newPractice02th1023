@@ -14,9 +14,7 @@ import {
 import { useDispatch } from "react-redux";
 const BookingPage = () => {
   const [state, setState] = useState(0);
-
   const dispatch = useDispatch();
-
   function handelPrevious() {
     dispatch(handelPreviousFromState({}));
   }
@@ -28,13 +26,16 @@ const BookingPage = () => {
     <div>
       <Stack
         sx={{
+          maxWidth: "1500px",
+          margin: "auto",
+
           padding: {
             xs: "0",
             sm: "0 2% ",
           },
         }}
       >
-        <Box p={1} sx={{ padding: "1% 0" }}>
+        <Box p={1} sx={{ padding: "1% 0" }} mt={2}>
           <ProgressBar state={state} />
         </Box>
         <>

@@ -4,14 +4,16 @@ import { Box, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 const CompanyList = () => {
   return (
-    <Box
-      sx={{
-        bgcolor: "secondary.light",
-        paddingBottom: "30px",
-        paddingTop: "20px",
-      }}
-    >
-      <MainContainer style={{}}>
+    <MainContainer style={{}}>
+      <Box
+        sx={{
+          paddingBottom: "30px",
+          paddingTop: "30px",
+          // border: "1px solid",
+          maxWidth: "1500px",
+          margin: "auto",
+        }}
+      >
         <Box sx={{ paddingBottom: "20px" }}>
           <Typography variant="h5" fontWeight={800}>
             Our Hotels
@@ -68,8 +70,8 @@ const CompanyList = () => {
             );
           })}
         </Stack>
-      </MainContainer>
-    </Box>
+      </Box>
+    </MainContainer>
   );
 };
 

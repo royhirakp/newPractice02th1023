@@ -1,9 +1,9 @@
 "use client";
+import NewHeader from "@/component/NewHeader/NewHeader";
 import ThemeProvidor from "@/component/ThemeProvidor/ThemeProvidor";
+// import NewHeader from "@/component/newHeader/NewHeader";
 import Footer from "@/component/root/parts/Footer";
-import Header from "@/component/root/parts/Header";
 import Hero from "@/component/root/parts/Hero";
-import NavBar from "@/component/root/parts/NavBar";
 import { Box, Divider, Paper, Stack } from "@mui/material";
 const colorBagroundEffectStyle: any = {
   position: "absolute",
@@ -29,7 +29,7 @@ export default function DashboardLayout({
             height: "100vh",
           }}
         >
-          <div style={{ background: "var(--blue)", position: "relative" }}>
+          <div style={{ position: "relative" }}>
             {/* baground effect / color effect  */}
             <div style={colorBagroundEffectStyle} />
             <div
@@ -43,7 +43,13 @@ export default function DashboardLayout({
               }}
             >
               {/* header */}
-              <div style={{}}>
+              <div
+                style={{
+                  position: "sticky",
+                  zIndex: "99",
+                  top: "0",
+                }}
+              >
                 <HeaderComponent />
               </div>
 
@@ -83,17 +89,9 @@ const HeaderComponent = () => {
           top: "0",
         }}
       >
-        <Paper elevation={0}>
-          <Box
-            color="primary.main"
-            bgcolor="primary.light"
-            sx={{ padding: "20px 0 5px 0" }}
-          >
-            <Header />
-            <Divider />
-            <NavBar />
-          </Box>
-        </Paper>
+        <Box>
+          <NewHeader />
+        </Box>
       </header>
       <Box
         sx={{
@@ -103,7 +101,7 @@ const HeaderComponent = () => {
           },
         }}
       >
-        <Hero />
+        {/* <Hero /> */}
       </Box>
     </>
   );

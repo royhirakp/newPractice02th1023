@@ -6,22 +6,6 @@ import Link from "next/link";
 
 const DisplayComponent = () => {
   return (
-    // <Paper
-    //   elevation={0}
-    //   sx={{
-    //     minWidth: "248px",
-    //     width: {
-    //       xs: "94%",
-    //       md: "400px",
-    //       xl: "420px",
-    //     },
-    //     height: {
-    //       xs: "300px",
-    //       md: "450px",
-    //       xl: "550px",
-    //     },
-    //   }}
-    // >
     <Box
       sx={{
         width: {
@@ -78,7 +62,7 @@ const DisplayComponent = () => {
             >
               sing up?
             </Typography>
-            <Link href="#gaggaga">create a account</Link>
+            <Link href="/singup">create a account</Link>
           </Box>
         </Box>
       </Stack>

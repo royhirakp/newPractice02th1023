@@ -31,13 +31,15 @@ const HotelsList = () => {
   return (
     <div>
       <MainContainer style={{}}>
-        {/* headding */}
-        <Box sx={{ margin: "15x 0 0 0", marginTop: "30px" }}>
-          <Headding />
-        </Box>
-        {/* slider */}
-        <Box sx={{ padding: "10px 0 0 0" }}>
-          <SwiperComponent />
+        <Box sx={{ maxWidth: "1500px", margin: "auto" }}>
+          {/* headding */}
+          <Box sx={{ margin: "15x 0 0 0", marginTop: "30px" }}>
+            <Headding />
+          </Box>
+          {/* slider */}
+          <Box sx={{ padding: "10px 0 0 0" }}>
+            <SwiperComponent />
+          </Box>
         </Box>
       </MainContainer>
     </div>
@@ -51,12 +53,6 @@ const Headding = () => {
     <>
       <Typography variant="h5" sx={{ color: "orange", fontWeight: "600" }}>
         Best Choices
-      </Typography>
-      <Typography
-        variant="h6"
-        sx={{ color: "#1f3e72", fontWeight: "bold", margin: "15px 0 0 0" }}
-      >
-        Popular Residences
       </Typography>
     </>
   );
@@ -73,8 +69,8 @@ const SwiperComponent = () => {
         1200: { slidesPerView: 2 },
         1400: { slidesPerView: 3 },
         1740: { slidesPerView: 4 },
-        2100: { slidesPerView: 5 },
-        2540: { slidesPerView: 6 },
+        // 2100: { slidesPerView: 5 },
+        // 2540: { slidesPerView: 6 },
       }}
       style={{ padding: "15px 10px 20px 10px", boxSizing: "border-box" }}
     >

@@ -9,8 +9,8 @@ import ComapnyLogo from "@/component/Login/parts/ComapnyLogo";
 
 const LoginPage = () => {
   return (
-    <Box sx={{}}>
-      <MainContainer style={{}}>
+    <MainContainer style={{}}>
+      <Box sx={{ maxWidth: "1500px", margin: "auto" }}>
         <Box pb={1}>
           <ComapnyLogo />
         </Box>
@@ -79,8 +79,8 @@ const LoginPage = () => {
             </Box>
           </Stack>
         </Paper>
-      </MainContainer>
-    </Box>
+      </Box>
+    </MainContainer>
   );
 };
 

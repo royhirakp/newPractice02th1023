@@ -7,12 +7,20 @@ import CoreValueComponent from "@/component/root/parts/CoreValueComponent";
 import Hero from "@/component/root/parts/Hero";
 import HotelsList from "@/component/root/parts/HotelsList";
 import StartyourJourneycomponent from "@/component/root/parts/StartyourJourneycomponent";
-import { Divider } from "@mui/material";
+import { Box, Divider } from "@mui/material";
 
 const HomePageMain = () => {
   return (
     <div>
-      {/* <Hero /> */}
+      <Box
+        sx={{
+          paddingTop: {
+            xs: "5px",
+          },
+        }}
+      >
+        <Hero />
+      </Box>
       <CompanyList />
       <HotelsList />
       <Divider />

@@ -53,8 +53,8 @@ const LoginForm = () => {
     formState: { errors },
   } = useForm<Inputs>();
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    router.push("/webapp");
-    console.log(data);
+    router.push("/webapp/Home");
+    localStorage.setItem("loginStatus", "nsnssnsns");
   };
 
   return (
@@ -174,13 +174,22 @@ function IconButtons() {
   return (
     <Stack direction="row" spacing={1} pb={3}>
       {[
-        { icon: <GoogleIcon />, backgroundColor: "#a03030" },
-        { icon: <InstagramIcon />, backgroundColor: "#e5536c" },
         {
-          icon: <FacebookIcon />,
+          icon: <GoogleIcon sx={{ color: "#ffff" }} />,
+          backgroundColor: "#a03030",
+        },
+        {
+          icon: <InstagramIcon sx={{ color: "#ffff" }} />,
+          backgroundColor: "#e5536c",
+        },
+        {
+          icon: <FacebookIcon sx={{ color: "#ffff" }} />,
           backgroundColor: "hsl(206deg 71.86% 33.26%)",
         },
-        { icon: <TwitterIcon />, backgroundColor: "#6ba3ba" },
+        {
+          icon: <TwitterIcon sx={{ color: "#ffff" }} />,
+          backgroundColor: "#6ba3ba",
+        },
       ].map((item, i) => {
         return (
           <IconButton

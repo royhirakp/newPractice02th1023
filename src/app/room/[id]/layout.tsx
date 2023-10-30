@@ -1,4 +1,5 @@
 "use client";
+import NewHeader from "@/component/NewHeader/NewHeader";
 import ThemeProvidor from "@/component/ThemeProvidor/ThemeProvidor";
 import Footer from "@/component/root/parts/Footer";
 import Header from "@/component/root/parts/Header";
@@ -43,9 +44,17 @@ export default function DashboardLayout({
               }}
             >
               {/* header */}
-              <div style={{}}>
-                <HeaderComponent />
-              </div>
+              <header
+                style={{
+                  position: "sticky",
+                  zIndex: "99",
+                  top: "0",
+                }}
+              >
+                <Box>
+                  <NewHeader />
+                </Box>
+              </header>
 
               {/* main part / medile part */}
               <Box

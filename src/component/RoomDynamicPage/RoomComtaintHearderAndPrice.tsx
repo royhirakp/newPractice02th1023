@@ -22,7 +22,7 @@ const RoomComtaintHearderAndPrice = ({
       }}
     >
       <MainContainer style={{}}>
-        <Stack direction="row">
+        <Stack direction="row" maxWidth="1500px" margin="auto">
           <Box
             sx={{
               display: "flex",

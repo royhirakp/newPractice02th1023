@@ -1,18 +1,37 @@
 "use client";
 import React from "react";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Paper, Stack, Typography } from "@mui/material";
 import MainContainer from "@/component/container/MainContainer";
 import Button from "@mui/material/Button";
 import RoomIcon from "@mui/icons-material/Room";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import CountUp from "react-countup";
 const Hero = () => {
   return (
     <div>
-      <MainContainer style={{}}>
+      {/* <MainContainer style={{ border: "5px solid" }}> */}
+      <Paper
+        sx={{
+          margin: {
+            xs: "0 5px",
+            sm: "10px 10px",
+            md: "10px 30px",
+          },
+          padding: {
+            xs: "0px 2px",
+            sm: "20px 0",
+          },
+          borderRadius: "20px",
+        }}
+      >
         <Stack
           sx={{
+            padding: {
+              // xs: "5px",
+            },
             width: {
+              xs: "250px",
               sm: "550px",
               md: "730px",
               lg: "730px",
@@ -24,9 +43,7 @@ const Hero = () => {
               md: "400px",
               xl: "500px",
             },
-
             margin: "0 auto",
-
             flexDirection: {
               xs: "column",
               sm: "row",
@@ -54,7 +71,8 @@ const Hero = () => {
             <ImageCard />
           </Box>
         </Stack>
-      </MainContainer>
+      </Paper>
+      {/* </MainContainer> */}
     </div>
   );
 };
@@ -143,7 +161,7 @@ const TEXTDataCard = () => {
         pt={4}
         sx={{
           maxWidth: "400px",
-          minWidth: "250px",
+          minWidth: "225px",
           margin: {
             xs: "0 auto",
             sm: "0",
@@ -151,19 +169,20 @@ const TEXTDataCard = () => {
         }}
       >
         {[
-          { value: "9,000", Text: "primium Products" },
-          { value: "2,000", Text: "Haapy Coustomers" },
-          { value: "28", Text: "Award Winning" },
+          { value: 8800, end: 9000, Text: "primium Products" },
+          { value: 1800, end: 2000, Text: "Haapy Coustomers" },
+          { value: 1, end: 28, Text: "Award Winning" },
         ].map((item, i) => {
           return (
             <Box key={i}>
-              <Typography variant="h5">
-                {item.value}
+              <Typography variant="h6">
+                {/* {item.value} */}
+                <CountUp start={item.value} end={item.end} />
                 <span style={{ color: "#e29e9e" }}>+</span>
               </Typography>
               <Typography
                 variant="body1"
-                sx={{ fontSize: { xs: "9px", sm: "10px" } }}
+                sx={{ fontSize: { xs: "8px", sm: "10px" } }}
               >
                 {item.Text}
               </Typography>

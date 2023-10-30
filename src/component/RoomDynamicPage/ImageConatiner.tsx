@@ -53,6 +53,7 @@ const ImageConatiner = ({ images }: { images: any }) => {
         items={imagesArray}
         autoPlay={false}
         showPlayButton={false}
+        // showNav={false}
       />
     </Box>
   );

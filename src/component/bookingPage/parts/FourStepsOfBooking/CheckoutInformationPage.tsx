@@ -37,9 +37,11 @@ const UserandRoomDetails = () => {
       </Typography>
       <Typography variant="body1" pb={1} color="primary">
         <span style={{ fontWeight: 700 }}>Aditional Services:</span>{" "}
-        <span>{aditionalService.message ? "Massage & Spa     " : ""}</span>
-        <span>{aditionalService.airportPickUp ? "AirPort Pickup   " : ""}</span>
-        <span>{aditionalService.tour ? "SigtheeingTour" : ""}</span>
+        <span>{aditionalService?.message ? "Massage & Spa     " : ""}</span>
+        <span>
+          {aditionalService?.airportPickUp ? "AirPort Pickup   " : ""}
+        </span>
+        <span>{aditionalService?.tour ? "SigtheeingTour" : ""}</span>
         {/* <span>{`${addAditionalService.message ? "true" : "false"}`}</span> */}
       </Typography>
       <Stack direction="row" flexWrap="wrap" sx={{ paddingLeft: "10%" }}>
