@@ -1,9 +1,7 @@
 "use client";
 import ThemeProvidor from "@/component/ThemeProvidor/ThemeProvidor";
-import Footer from "@/component/root/parts/Footer";
-import Header from "@/component/root/parts/Header";
-import NavBar from "@/component/root/parts/NavBar";
-import { Box, Divider, Paper, Stack } from "@mui/material";
+
+import { Box } from "@mui/material";
 const colorBagroundEffectStyle: any = {
   position: "absolute",
   width: "20rem",
@@ -24,11 +22,9 @@ export default function DashboardLayout({
         style={{
           position: "relative",
           overflowX: "clip",
-          //   height: "100vh",
         }}
       >
         <div style={{ background: "var(--blue)", position: "relative" }}>
-          {/* baground effect / color effect  */}
           <div style={colorBagroundEffectStyle} />
           <div
             className="container"
@@ -36,11 +32,9 @@ export default function DashboardLayout({
               height: "auto",
               display: "flex",
               flexDirection: "column",
-              //   minHeight: "100vh",
               justifyContent: "space-between",
             }}
           >
-            {/* main part / medile part */}
             <Box
               sx={{
                 flexGrow: 1,
@@ -59,29 +53,3 @@ export default function DashboardLayout({
     </ThemeProvidor>
   );
 }
-
-const HeaderComponent = () => {
-  return (
-    <>
-      <header
-        style={{
-          position: "sticky",
-          zIndex: "99",
-          top: "0",
-        }}
-      >
-        <Paper elevation={0}>
-          <Box
-            color="primary.main"
-            bgcolor="primary.light"
-            sx={{ padding: "15px 0 0 0" }}
-          >
-            <Header />
-            <Divider />
-            <NavBar />
-          </Box>
-        </Paper>
-      </header>
-    </>
-  );
-};

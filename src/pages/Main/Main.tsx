@@ -21,7 +21,6 @@ const Main = () => {
         }}
       >
         <div style={{ background: "var(--blue)", position: "relative" }}>
-          {/* baground effect / color effect  */}
           <div
             style={{
               position: "absolute",

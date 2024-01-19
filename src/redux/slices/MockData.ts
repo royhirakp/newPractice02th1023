@@ -139,11 +139,10 @@ const BooksSlice = createSlice({
         }
         return temp;
       });
-      // filter data by the price range
       let filterF = filterE.filter((item) => {
         const pricePerNight = parseFloat(item.pricePerNight);
         return (
-          !isNaN(pricePerNight) && // Check if the conversion was successful
+          !isNaN(pricePerNight) &&
           pricePerNight > formData.priceRange[0] &&
           pricePerNight < formData.priceRange[1]
         );
@@ -152,17 +151,6 @@ const BooksSlice = createSlice({
 
       state.filterRoomList = filterF;
       state.totalNoOfPage = calculateTotalNoOfPages(filterF.length);
-      // console.log(state.roomsList[0].pricePerNight);
-      // filter data by the price range
-      // let filterArrr = data.filter((item) => {
-      //   const pricePerNight = parseFloat(item.pricePerNight);
-      //   return (
-      //     !isNaN(pricePerNight) && // Check if the conversion was successful
-      //     pricePerNight > formData.priceRange[0] &&
-      //     pricePerNight < formData.priceRange[1]
-      //   );
-      // });
-      // console.log(filterArrr, "===== filter array");
     },
   },
 });

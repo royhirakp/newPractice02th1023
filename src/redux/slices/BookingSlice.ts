@@ -61,7 +61,6 @@ const bookingSlice = createSlice({
       state.userInfo = action.payload.userInfo;
       // set room init price
       state.totalPrice = action.payload.item.pricePerNight * 1;
-      // console.log(state.totalPrice, "==============");
     },
 
     addAditionalService: (state, action) => {

@@ -51,7 +51,6 @@ const LoginPage = () => {
             <Divider
               orientation="horizontal"
               sx={{
-                // height: "400px",
                 width: "100%",
                 display: {
                   xs: "block",

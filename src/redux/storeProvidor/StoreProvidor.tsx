@@ -11,7 +11,6 @@ let persistor = persistStore(store);
 const StoreProvidor: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  // let persistor = persistStore(store);
   return (
     <>
       <PersistGate loading={null} persistor={persistor}>

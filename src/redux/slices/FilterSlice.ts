@@ -9,7 +9,6 @@ interface filterItm {
   image: string;
   info: string;
   numOfReview: string;
-  //   qtyOfOrder: number;
 }
 interface AppState {
   date: string;
@@ -32,7 +31,6 @@ const FilterSlice = createSlice({
         let arr = action.payload.value.split("Dividerr");
         state.priceRange = arr;
       } else if (action.payload.type == "priceRange") {
-        // console.log(action.payload);
         state.priceRange = action.payload.value;
       } else if (action.payload.type == "services") {
         console.log(action.payload);
